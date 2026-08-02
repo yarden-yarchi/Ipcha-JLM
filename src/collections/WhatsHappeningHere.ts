@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { isAdmin } from '../access/isAdmin'
+
 export const WhatsHappeningHere: CollectionConfig = {
   slug: 'whats-happening-here',
   labels: {
@@ -11,6 +13,9 @@ export const WhatsHappeningHere: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
   },
   fields: [
     {

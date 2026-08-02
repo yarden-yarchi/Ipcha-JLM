@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { isAdmin } from '../access/isAdmin'
+
 export const Workshops: CollectionConfig = {
   slug: 'workshops',
   labels: {
@@ -12,8 +14,18 @@ export const Workshops: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
   },
   fields: [
+    {
+      name: 'image',
+      label: 'תמונה',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
     {
       name: 'preTitle',
       label: 'כותרת על',

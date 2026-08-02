@@ -1,0 +1,155 @@
+.section {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 48px 32px 80px;
+  background-color: rgba(208, 235, 253, 0.3);
+  border-radius: 40px;
+}
+
+.heading {
+  font-family: var(--font-eshkolita), var(--font-arbel), sans-serif;
+  font-weight: 400;
+  color: var(--color-blue);
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 30px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: #eee;
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 45%);
+}
+
+.cardTitle {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  color: var(--color-blue);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-blue);
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 40px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  max-height: 90vh;
+}
+
+.modalClose {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.modalImageWrap {
+  position: relative;
+  flex: 1 1 45%;
+  min-height: 320px;
+}
+
+.modalImage {
+  object-fit: cover;
+}
+
+.modalContent {
+  flex: 1 1 55%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  text-align: right;
+  color: var(--color-blue);
+}
+
+.modalContent h3 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.modalContent p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.modalCta {
+  align-self: flex-start;
+  background: var(--color-blue);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal {
+    flex-direction: column;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

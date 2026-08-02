@@ -1,0 +1,109 @@
+.wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 32px;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.mapWrap {
+  position: relative;
+  flex: 1 1 45%;
+  max-width: 620px;
+}
+
+.mapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  color: var(--color-blue);
+  border: 2px solid #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pinActive {
+  background: var(--color-blue);
+  color: #fff;
+}
+
+.accordion {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rowHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #d0ebfd;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--color-blue);
+  text-align: right;
+  font-family: var(--font-arbel), sans-serif;
+}
+
+.rowSign {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.rowTitle {
+  flex: 1;
+  font-weight: 700;
+}
+
+.rowBadge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  color: var(--color-blue);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowDescription {
+  background: rgba(208, 235, 253, 0.3);
+  border-radius: 15px;
+  padding: 16px 20px;
+  margin: 4px 0 0;
+  color: var(--color-blue);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .mapWrap {
+    max-width: 100%;
+  }
+}

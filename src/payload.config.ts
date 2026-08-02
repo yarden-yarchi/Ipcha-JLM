@@ -11,6 +11,7 @@ import { Media } from './collections/Media'
 import { Workshops } from './collections/Workshops'
 import { ContentLibraryItems } from './collections/ContentLibraryItems'
 import { WhatsHappeningHere } from './collections/WhatsHappeningHere'
+import { ContactSubmissions } from './collections/ContactSubmissions'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,11 +22,11 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    routes: {
-      admin: '/admin-dashboard',
-    },
   },
-  collections: [Users, Media, Workshops, ContentLibraryItems, WhatsHappeningHere],
+  routes: {
+    admin: '/admin-dashboard',
+  },
+  collections: [Users, Media, Workshops, ContentLibraryItems, WhatsHappeningHere, ContactSubmissions],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

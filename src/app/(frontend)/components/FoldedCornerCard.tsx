@@ -1,0 +1,45 @@
+import type { ReactNode } from 'react'
+
+import styles from './FoldedCornerCard.module.css'
+
+export type FoldCorner = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
+
+// הצורה הזו טבעית עם הקיפול בפינה העליונה-ימנית (top-right).
+// שאר הכיוונים מושגים באמצעות transform ב-CSS (ראה FoldedCornerCard.module.css) - לא בשינוי הקואורדינטות.
+const CORNER_CLASS: Record<FoldCorner, string> = {
+  'top-right': styles.cornerTopRight,
+  'top-left': styles.cornerTopLeft,
+  'bottom-right': styles.cornerBottomRight,
+  'bottom-left': styles.cornerBottomLeft,
+}
+
+export function FoldedCornerCard({
+  corner = 'top-right',
+  className,
+  children,
+}: {
+  corner?: FoldCorner
+  className?: string
+  children: ReactNode
+}) {
+  return (
+    <div className={`${styles.card} ${className ?? ''}`}>
+      <svg
+        className={`${styles.shape} ${CORNER_CLASS[corner]}`}
+        viewBox="0 0 393 503"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M46.2702 0H315.14H316.1C319.565 4.69037 325.827 11.3265 329.81 15.9552L359.622 50.4678L383.72 78.4512C385.453 80.4355 391.25 87.5095 392.835 88.9952L393 88.9628V458.957C392.423 459.92 391.955 462.725 391.565 464.068C390.95 466.24 390.205 468.375 389.34 470.46C383.505 484.797 371.962 495.512 357.152 500.462C355.782 500.92 349.277 502.575 348.455 503H44.551C41.7317 502.15 38.9178 501.28 36.109 500.397C18.6816 494.812 5.90715 481.028 1.38165 463.57C1.03798 462.245 0.645193 460.02 0 458.905V44.2542C0.329618 43.8202 1.48842 38.8058 1.76637 37.7835C5.83317 22.825 18.7668 8.35492 33.489 3.28553C35.9232 2.46611 38.3922 1.75397 40.889 1.15116C42.1247 0.857338 45.535 0.422193 46.2702 0Z"
+          fill="#CFEBFB"
+        />
+        <path
+          d="M315.14 0H316.1C319.565 4.69037 325.828 11.3265 329.81 15.9552L359.623 50.4678L383.72 78.4512C385.453 80.4355 391.25 87.5095 392.835 88.9952C390.008 90.6052 380.208 90.0215 376.695 90.032C372.068 90.046 366.08 90.2643 361.555 89.716C347.76 88.0908 335.175 81.059 326.56 70.1643C313.59 53.561 314.953 39.6192 314.945 19.738L314.96 7.27878C314.97 5.25683 314.903 1.91598 315.14 0Z"
+          fill="#AEE3FD"
+        />
+      </svg>
+      <div className={styles.content}>{children}</div>
+    </div>
+  )
+}

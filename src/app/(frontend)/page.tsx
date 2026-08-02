@@ -1,59 +1,180 @@
-import { headers as getHeaders } from 'next/headers.js'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getPayload } from 'payload'
-import React from 'react'
-import { fileURLToPath } from 'url'
 
 import config from '@/payload.config'
-import './styles.css'
+import heroSlide1 from '../../../assets/hero-slides/hero-slide-1.png'
+import heroSlide2 from '../../../assets/hero-slides/hero-slide-2.png'
+import heroSlide3 from '../../../assets/hero-slides/hero-slide-3.png'
+import cardTitle1 from '../../../assets/home/image-18.png'
+import cardTitle2 from '../../../assets/home/image-19.png'
+import cardTitle3 from '../../../assets/home/image-20.png'
+import teamPhoto from '../../../assets/home/image-27.jpeg'
+import sparkPhoto from '../../../assets/home/image-09.jpeg'
+import stickerEyes from '../../../assets/home/sticker-eyes-pink.png'
+import sparkleStar from '../../../assets/misc/sparkle-star.png'
+import squiggle from '../../../assets/misc/squiggle-hero.svg'
+import { FoldedCornerCard, type FoldCorner } from './components/FoldedCornerCard'
+import { HeroCarousel } from './components/HeroCarousel'
+import { Nav } from './components/Nav'
+import { PhotoBand } from './components/PhotoBand'
+import { WorkshopTeaserCard } from './components/WorkshopTeaserCard'
+import styles from './page.module.css'
+
+type StarPosition = 'top-left' | 'bottom-right' | 'top-right'
+
+const WHAT_WE_DO_CARDS: {
+  titleImage: typeof cardTitle1
+  titleAlt: string
+  text: string
+  ctaLabel: string
+  href: string
+  corner: FoldCorner
+  star: StarPosition
+}[] = [
+  {
+    titleImage: cardTitle1,
+    titleAlt: 'כאן מוצאים השראה',
+    text: 'ספרייה מתעדכנת של עזרים פדגוגיים מעוצבים, שנועדו להכניס צבע, יצירתיות וחדשנות לכיתה שלך.',
+    ctaLabel: 'למאגר התכנים >>',
+    href: '/content-library',
+    corner: 'top-right',
+    star: 'top-left',
+  },
+  {
+    titleImage: cardTitle2,
+    titleAlt: 'עוזרים להצית את הניצוץ',
+    text: 'הזדמנויות ללמידה באמצעות כלי חשיבה עיצובית. מפגשים שמעניקים למורים כלים רעננים ליצירת הוראה רלוונטית ומותאמת, והופכים תיאוריה לפרקטיקה.',
+    ctaLabel: 'סדנאות והשתלמויות >>',
+    href: '/workshops',
+    corner: 'top-left',
+    star: 'bottom-right',
+  },
+  {
+    titleImage: cardTitle3,
+    titleAlt: 'בתי ספר מעצבים לחיים',
+    text: 'תהליך שמזהה אתגרים חינוכיים והופך אותם להזדמנויות. הזמנה לצאת מהשגרה ולחשוב כמו מעצבים: בואו להכיר פדגוגיה שיוצאת מהקופסה ונשארת מחוברת לכיתה.',
+    ctaLabel: 'התפיסה שלנו >>',
+    href: '/vision',
+    corner: 'bottom-right',
+    star: 'top-right',
+  },
+]
+
+const STAR_CLASS: Record<StarPosition, string> = {
+  'top-left': styles.cardStarTopLeft,
+  'bottom-right': styles.cardStarBottomRight,
+  'top-right': styles.cardStarTopRight,
+}
 
 export default async function HomePage() {
-  const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+  const latestWorkshops = await payload.find({
+    collection: 'workshops',
+    sort: '-date',
+    limit: 1,
+  })
+  const latestWorkshop = latestWorkshops.docs[0]
 
   return (
-    <div className="home">
-      <div className="content">
-        <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/3.x/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/3.x/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
-        </picture>
-        {!user && <h1>Welcome to your new project.</h1>}
-        {user && <h1>Welcome back, {user.email}</h1>}
-        <div className="links">
-          <a
-            className="admin"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Go to admin panel
-          </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
+    <>
+      <section className={styles.hero}>
+        <HeroCarousel images={[heroSlide1, heroSlide2, heroSlide3]} />
+        <Image src={squiggle} alt="" className={styles.heroSquiggle} />
+        <Nav />
+      </section>
+
+      <section className={`${styles.whatWeDo} gridLinesBlue`}>
+        <div className={styles.sectionHeadingWrap}>
+          <span className={styles.sectionHeadingBg} />
+          <h2 className={styles.sectionHeading}>מה עושים באיפכא?</h2>
         </div>
-      </div>
-      <div className="footer">
-        <p>Update this page by editing</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/(frontend)/page.tsx</code>
-        </a>
-      </div>
-    </div>
+
+        <div className={styles.cardsGrid}>
+          {WHAT_WE_DO_CARDS.map((card) => (
+            <FoldedCornerCard key={card.titleAlt} corner={card.corner} className={styles.card}>
+              <Image src={sparkleStar} alt="" className={`${styles.cardStar} ${STAR_CLASS[card.star]}`} />
+              <div className={styles.cardContent}>
+                <Link href={card.href}>
+                  <Image src={card.titleImage} alt={card.titleAlt} className={styles.cardTitleImage} />
+                </Link>
+                <p>{card.text}</p>
+                <Link href={card.href} className={styles.cardCta}>
+                  {card.ctaLabel}
+                </Link>
+              </div>
+            </FoldedCornerCard>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.teamBlurb}>
+        <Image src={teamPhoto} alt="צוות איפכא" fill className={styles.teamBlurbPhoto} />
+        <div className={styles.teamText}>
+          <svg
+            className={styles.teamTextShape}
+            viewBox="0 0 446 494"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <g opacity="0.7">
+              <path
+                d="M88.0038 0H386.019C419.148 0 446 23.2548 446 51.9451V442.055C446 470.742 419.148 494 386.019 494H59.9811C26.856 494 2.38419e-06 470.745 2.38419e-06 442.055V88.3285L88.0038 0Z"
+                fill="white"
+              />
+              <path
+                d="M88.3729 36.3833C88.3729 65.0705 61.5206 88.3285 28.3918 88.3285H0.36546L88.3729 0V36.3833Z"
+                fill="#E6E6E6"
+              />
+            </g>
+          </svg>
+          <div className={styles.teamTextContent}>
+            <h2>היי, אנחנו איפכא!</h2>
+            <p>
+              צוות של אנשי חינוך ומעצבים מתחומים מגוונים. הידע והניסיון שלנו יוצרים חיבור ודרך פעולה
+              ייחודית, המאפשרת לנו לחבור לצוותי חינוך, לזהות אתגרים, להפוך אותם להזדמנויות ולהתנסות
+              בפתרונות יצירתיים וחווייתיים שאפשר להביא לכיתה.
+            </p>
+            <Link href="/vision" className={styles.teamCta}>
+              רוצים לגלות עוד?
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.spark} gridLinesWhite`}>
+        <div className={styles.sparkCard}>
+          <div className={styles.sparkText}>
+            <h2 className={styles.sparkHeadingWrap}>
+              <span className={styles.sparkHeadingBg} />
+              <span className={styles.sparkHeading}>מחפשים את הניצוץ?</span>
+            </h2>
+            <p>
+              אנחנו באיפכא פותחים לכם את הדלת ללמידה והתנסות. בואו להעשיר את ארגז הכלים שלכם בחדשנות
+              חינוכית וחשיבה עיצובית
+            </p>
+            <Link href="/workshops" className={styles.sparkCta}>
+              {'הסדנאות וההשתלמויות שלנו >>'}
+            </Link>
+          </div>
+          <div className={styles.sparkPhotoWrap}>
+            <Image src={sparkPhoto} alt="" className={styles.sparkPhoto} />
+          </div>
+          <Link href="/vision" className={styles.sparkStickerLink} aria-label="החזון שלנו">
+            <Image src={stickerEyes} alt="" className={styles.sparkSticker} />
+          </Link>
+        </div>
+
+        {latestWorkshop && (
+          <div className={styles.latestWorkshop}>
+            <WorkshopTeaserCard workshop={latestWorkshop} />
+          </div>
+        )}
+      </section>
+
+      <PhotoBand />
+    </>
   )
 }

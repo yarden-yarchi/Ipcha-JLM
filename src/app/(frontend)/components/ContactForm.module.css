@@ -1,0 +1,59 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.heading {
+  color: var(--color-orange);
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.field input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-family: var(--font-arbel), sans-serif;
+  font-size: 18px;
+  padding: 6px 0;
+  outline: none;
+}
+
+.field input:focus {
+  border-bottom-color: #fff;
+}
+
+.submit {
+  align-self: flex-start;
+  background: var(--color-orange);
+  color: var(--color-blue);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-family: var(--font-arbel), sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  color: #fff;
+  font-size: 16px;
+  margin: 0;
+}

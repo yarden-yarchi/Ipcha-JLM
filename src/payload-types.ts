@@ -72,6 +72,7 @@ export interface Config {
     workshops: Workshop;
     'content-library-items': ContentLibraryItem;
     'whats-happening-here': WhatsHappeningHere;
+    'contact-submissions': ContactSubmission;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     workshops: WorkshopsSelect<false> | WorkshopsSelect<true>;
     'content-library-items': ContentLibraryItemsSelect<false> | ContentLibraryItemsSelect<true>;
     'whats-happening-here': WhatsHappeningHereSelect<false> | WhatsHappeningHereSelect<true>;
+    'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -173,6 +175,7 @@ export interface Media {
  */
 export interface Workshop {
   id: number;
+  image: number | Media;
   preTitle?: string | null;
   title: string;
   description: string;
@@ -209,6 +212,19 @@ export interface WhatsHappeningHere {
   text: string;
   buttonLabel?: string | null;
   buttonUrl?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-submissions".
+ */
+export interface ContactSubmission {
+  id: number;
+  name: string;
+  phone: string;
+  email: string;
+  message: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -255,6 +271,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'whats-happening-here';
         value: number | WhatsHappeningHere;
+      } | null)
+    | ({
+        relationTo: 'contact-submissions';
+        value: number | ContactSubmission;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -343,6 +363,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "workshops_select".
  */
 export interface WorkshopsSelect<T extends boolean = true> {
+  image?: T;
   preTitle?: T;
   title?: T;
   description?: T;
@@ -377,6 +398,18 @@ export interface WhatsHappeningHereSelect<T extends boolean = true> {
   text?: T;
   buttonLabel?: T;
   buttonUrl?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-submissions_select".
+ */
+export interface ContactSubmissionsSelect<T extends boolean = true> {
+  name?: T;
+  phone?: T;
+  email?: T;
+  message?: T;
   updatedAt?: T;
   createdAt?: T;
 }

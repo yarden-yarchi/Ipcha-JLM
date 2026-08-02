@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { isAdmin } from '../access/isAdmin'
+
 export const ContentLibraryItems: CollectionConfig = {
   slug: 'content-library-items',
   labels: {
@@ -12,6 +14,9 @@ export const ContentLibraryItems: CollectionConfig = {
   },
   access: {
     read: () => true,
+    create: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
   },
   fields: [
     {

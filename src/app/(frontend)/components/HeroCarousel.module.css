@@ -1,0 +1,9 @@
+.carousel {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  transition: opacity 1.2s ease-in-out;
+}
