@@ -1,8 +1,12 @@
-.grid {
+.gridSection {
   background-color: #fff;
+  margin-top: -90px;
+  padding: 150px 32px 160px;
+}
+
+.grid {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 80px 32px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
@@ -23,9 +27,13 @@
 }
 
 @media (max-width: 640px) {
+  .gridSection {
+    padding: 40px 20px 140px;
+    margin-top: -50px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
     gap: 28px;
-    padding: 48px 20px;
   }
 }

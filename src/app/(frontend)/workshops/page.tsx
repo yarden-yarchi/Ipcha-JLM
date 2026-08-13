@@ -4,7 +4,7 @@ import config from '@/payload.config'
 import heroImage from '../../../../assets/workshops/hero.jpg'
 import { PageHero } from '../components/PageHero'
 import { PhotoBand } from '../components/PhotoBand'
-import { WorkshopArchiveCard } from '../components/WorkshopArchiveCard'
+import { WorkshopTeaserCard } from '../components/WorkshopTeaserCard'
 import styles from './page.module.css'
 
 export const metadata = {
@@ -25,11 +25,13 @@ export default async function WorkshopsPage() {
     <>
       <PageHero image={heroImage} title="כאן מתמקצעים" />
 
-      <section className={`${styles.list} gridLinesBlue`}>
-        {workshops.docs.map((workshop, index) => (
-          <WorkshopArchiveCard key={workshop.id} workshop={workshop} index={index} />
-        ))}
-        {workshops.docs.length === 0 && <p className={styles.empty}>עדיין אין סדנאות מתוכננות.</p>}
+      <section className={`${styles.listSection} gridLinesBlue`}>
+        <div className={styles.list}>
+          {workshops.docs.map((workshop) => (
+            <WorkshopTeaserCard key={workshop.id} workshop={workshop} />
+          ))}
+          {workshops.docs.length === 0 && <p className={styles.empty}>עדיין אין סדנאות מתוכננות.</p>}
+        </div>
       </section>
 
       <PhotoBand />

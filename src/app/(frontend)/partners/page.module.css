@@ -1,0 +1,13 @@
+.pageBg {
+  background-color: #fff;
+  margin-top: -90px;
+  padding: 150px 32px 160px;
+}
+
+@media (max-width: 768px) {
+  .pageBg {
+    margin-top: -50px;
+    padding-top: 40px;
+    padding-bottom: 140px;
+  }
+}

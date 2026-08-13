@@ -1,8 +1,12 @@
-.list {
+.listSection {
   background-color: #fff;
+  margin-top: -90px;
+  padding: 150px 32px 160px;
+}
+
+.list {
   max-width: 1250px;
   margin: 0 auto;
-  padding: 80px 32px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -16,8 +20,12 @@
 }
 
 @media (max-width: 700px) {
+  .listSection {
+    padding: 40px 20px 140px;
+    margin-top: -50px;
+  }
+
   .list {
-    padding: 48px 20px;
     gap: 48px;
   }
 }

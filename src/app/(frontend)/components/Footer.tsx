@@ -31,7 +31,6 @@ export function Footer() {
   return (
     <footer className={styles.footer} id="contact">
       <div className={styles.inner}>
-        <ContactForm />
         <div className={styles.right}>
           <Image src={logoLockup} alt="איפכא" className={styles.logo} />
           <ul className={styles.sitemap}>
@@ -49,6 +48,7 @@ export function Footer() {
             ))}
           </div>
         </div>
+        <ContactForm />
       </div>
       <p className={styles.copyright}>כל הזכויות שמורות לאיפכא / קרדיטים מיתוג עיצוב בנייה צילום</p>
       {/* TODO: לקשר למספר וואטסאפ אמיתי */}

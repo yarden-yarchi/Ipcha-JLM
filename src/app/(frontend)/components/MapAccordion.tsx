@@ -21,28 +21,15 @@ const SCHOOLS = [
 
 const PLACEHOLDER_DESCRIPTION = 'תיאור בית הספר יתווסף בקרוב.'
 
+const TOOLTIP_PATH =
+  'M6.7598 0H162.149L162.168 0.0106613C162.519 0.20366 162.967 0.278514 163.353 0.412371C166.213 1.40261 168.3 4.12341 168.906 7.05124V29.3913C168.019 32.123 166.94 34.1887 164.239 35.5629C163.231 36.0783 162.131 36.3871 161.002 36.4713C159.772 36.5651 157.861 36.5009 156.571 36.4991L148.463 36.4937L122.478 36.4956L47.4919 36.4968L22.7286 36.4969C18.6189 36.4968 13.8203 36.3687 9.79153 36.522C6.65802 39.6186 3.44314 42.9912 0.274135 46H0V6.95882C0.0968366 6.62502 0.198399 6.29262 0.304656 5.9617C1.05131 3.67057 2.6421 1.76728 4.8281 0.692191C5.45495 0.383896 6.2865 0.244228 6.74051 0.0101235L6.7598 0Z'
+
 export function MapAccordion() {
-  const [activeId, setActiveId] = useState<number | null>(null)
+  const [activeId, setActiveId] = useState<number>(SCHOOLS[0].id)
+  const activeSchool = SCHOOLS.find((school) => school.id === activeId)
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.mapWrap}>
-        <Image src={mapImage} alt="מפת בתי הספר בשכונה" className={styles.mapImage} />
-        {SCHOOLS.map((school) => (
-          <button
-            key={school.id}
-            type="button"
-            className={`${styles.pin} ${activeId === school.id ? styles.pinActive : ''}`}
-            style={{ left: `${school.x}%`, top: `${school.y}%` }}
-            onMouseEnter={() => setActiveId(school.id)}
-            onClick={() => setActiveId(school.id)}
-            aria-label={school.name}
-          >
-            {school.id}
-          </button>
-        ))}
-      </div>
-
       <div className={styles.accordion}>
         {SCHOOLS.map((school) => {
           const isOpen = activeId === school.id
@@ -51,8 +38,7 @@ export function MapAccordion() {
               <button
                 type="button"
                 className={styles.rowHeader}
-                onClick={() => setActiveId(isOpen ? null : school.id)}
-                onMouseEnter={() => setActiveId(school.id)}
+                onClick={() => setActiveId(school.id)}
               >
                 <span className={styles.rowSign}>{isOpen ? '-' : '+'}</span>
                 <span className={styles.rowTitle}>{school.name}</span>
@@ -62,6 +48,49 @@ export function MapAccordion() {
             </div>
           )
         })}
+      </div>
+
+      <div className={styles.mapWrap}>
+        <Image src={mapImage} alt="מפת בתי הספר בשכונה" className={styles.mapImage} />
+        {SCHOOLS.map(
+          (school) =>
+            activeId === school.id && (
+              <span
+                key={school.id}
+                className={styles.pinHalo}
+                style={{ left: `${school.x}%`, top: `${school.y}%` }}
+              />
+            ),
+        )}
+        {SCHOOLS.map((school) => (
+          <button
+            key={school.id}
+            type="button"
+            className={`${styles.pin} ${activeId === school.id ? styles.pinActive : ''}`}
+            style={{ left: `${school.x}%`, top: `${school.y}%` }}
+            onClick={() => setActiveId(school.id)}
+            aria-label={school.name}
+          >
+            {school.id}
+          </button>
+        ))}
+
+        {activeSchool && (
+          <div
+            className={styles.tooltip}
+            style={{ left: `${activeSchool.x}%`, top: `${activeSchool.y}%` }}
+          >
+            <svg
+              className={styles.tooltipShape}
+              viewBox="0 0 169 46"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d={TOOLTIP_PATH} fill="#042CD2" />
+            </svg>
+            <span className={styles.tooltipText}>{activeSchool.name}</span>
+          </div>
+        )}
       </div>
     </div>
   )

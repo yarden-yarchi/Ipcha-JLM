@@ -11,8 +11,11 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
   const activeImage = active?.image as Media | undefined
 
   return (
-    <section className={`${styles.section} gridLinesWhite`}>
-      <h2 className={styles.heading}>מה עוד קורה כאן?</h2>
+    <section className={styles.section}>
+      <h2 className={styles.headingWrap}>
+        <span className={styles.headingBg} />
+        <span className={styles.heading}>מה עוד קורה כאן?</span>
+      </h2>
       <div className={styles.grid}>
         {items.map((item) => {
           const image = item.image as Media
@@ -33,7 +36,9 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
                 />
               )}
               <span className={styles.cardOverlay} />
-              <span className={styles.cardTitle}>{item.title}</span>
+              <span className={styles.cardTitle}>
+                <span className={styles.cardTitleText}>{item.title}</span>
+              </span>
             </button>
           )
         })}
@@ -51,14 +56,9 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
             >
               ✕
             </button>
-            {activeImage?.url && (
-              <div className={styles.modalImageWrap}>
-                <Image src={activeImage.url} alt={activeImage.alt} fill className={styles.modalImage} />
-              </div>
-            )}
             <div className={styles.modalContent}>
-              <h3>{active.title}</h3>
-              <p>{active.text}</p>
+              <h3 className={styles.modalTitle}>{active.title}</h3>
+              <p className={styles.modalText}>{active.text}</p>
               {active.buttonLabel && active.buttonUrl && (
                 <a
                   href={active.buttonUrl}
@@ -70,6 +70,12 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
                 </a>
               )}
             </div>
+            {activeImage?.url && (
+              <div className={styles.modalImageWrap}>
+                <Image src={activeImage.url} alt={activeImage.alt} fill className={styles.modalImage} />
+                <span className={styles.modalImageFade} />
+              </div>
+            )}
           </div>
         </div>
       )}

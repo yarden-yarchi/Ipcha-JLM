@@ -1,18 +1,38 @@
 .section {
+  position: relative;
+  z-index: 1;
   max-width: 1100px;
   margin: 40px auto 0;
-  padding: 48px 32px 80px;
+  padding: 48px 32px;
   background-color: rgba(208, 235, 253, 0.3);
   border-radius: 40px;
 }
 
+.headingWrap {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 40px;
+}
+
+.headingBg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 65%;
+  background: var(--color-orange);
+  z-index: 0;
+}
+
 .heading {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
   font-family: var(--font-eshkolita), var(--font-arbel), sans-serif;
   font-weight: 400;
   color: var(--color-blue);
   font-size: 40px;
-  text-align: center;
-  margin-bottom: 40px;
 }
 
 .grid {
@@ -44,13 +64,20 @@
 
 .cardTitle {
   position: absolute;
-  bottom: 16px;
+  bottom: 24px;
   left: 16px;
   right: 16px;
   text-align: center;
+}
+
+.cardTitleText {
+  display: inline-block;
   color: var(--color-blue);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 36px;
+  line-height: 1.15;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--color-blue);
 }
 
 .empty {
@@ -71,11 +98,14 @@
 }
 
 .modal {
-  background: #fff;
-  border-radius: 40px;
-  max-width: 800px;
+  background: #f5f5f5;
+  border-radius: 80px;
+  max-width: 900px;
   width: 100%;
   display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 40px;
   overflow: hidden;
   position: relative;
   max-height: 90vh;
@@ -83,8 +113,8 @@
 
 .modalClose {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 20px;
+  left: 20px;
   background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 50%;
@@ -95,45 +125,62 @@
   z-index: 2;
 }
 
+.modalContent {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.modalTitle,
+.modalText {
+  margin: 0;
+  color: var(--color-blue);
+  font-family: var(--font-arbel), sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1875;
+  text-align: right;
+}
+
+.modalCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-blue);
+  color: #fff;
+  padding: 20px;
+  border-radius: 40px;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
 .modalImageWrap {
   position: relative;
-  flex: 1 1 45%;
-  min-height: 320px;
+  flex: 0 0 260px;
+  width: 260px;
+  align-self: stretch;
+  border-radius: 60px;
+  overflow: hidden;
 }
 
 .modalImage {
   object-fit: cover;
 }
 
-.modalContent {
-  flex: 1 1 55%;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  text-align: right;
-  color: var(--color-blue);
-}
-
-.modalContent h3 {
-  font-size: 28px;
-  margin: 0;
-}
-
-.modalContent p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.modalCta {
-  align-self: flex-start;
-  background: var(--color-blue);
-  color: #fff;
-  padding: 10px 24px;
-  border-radius: 24px;
-  font-size: 16px;
+.modalImageFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.72) 100%
+  );
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {
@@ -143,8 +190,33 @@
 
   .modal {
     flex-direction: column;
+    align-items: stretch;
+    padding: 24px;
+    gap: 24px;
+    border-radius: 40px;
     max-height: 85vh;
     overflow-y: auto;
+  }
+
+  .modalContent {
+    padding: 0;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .modalTitle,
+  .modalText {
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .modalImageWrap {
+    flex: 0 0 auto;
+    align-self: auto;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 30px;
   }
 }
 

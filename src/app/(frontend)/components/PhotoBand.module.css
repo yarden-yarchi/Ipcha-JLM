@@ -1,5 +1,6 @@
 .band {
   position: relative;
+  margin-top: -100px;
   border-radius: 100px 100px 0 0;
   overflow: hidden;
   display: block;

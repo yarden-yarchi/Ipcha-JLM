@@ -25,11 +25,13 @@ export default async function ContentLibraryPage() {
     <>
       <PageHero image={heroImage} title="כאן מוצאים השראה" />
 
-      <section className={`${styles.grid} gridLinesBlue`}>
-        {items.docs.map((item) => (
-          <ContentLibraryCard key={item.id} item={item} />
-        ))}
-        {items.docs.length === 0 && <p className={styles.empty}>עדיין אין פריטים במאגר התכנים.</p>}
+      <section className={`${styles.gridSection} gridLinesBlue`}>
+        <div className={styles.grid}>
+          {items.docs.map((item) => (
+            <ContentLibraryCard key={item.id} item={item} />
+          ))}
+          {items.docs.length === 0 && <p className={styles.empty}>עדיין אין פריטים במאגר התכנים.</p>}
+        </div>
       </section>
 
       <PhotoBand />

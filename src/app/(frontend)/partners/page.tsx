@@ -6,6 +6,7 @@ import { MapAccordion } from '../components/MapAccordion'
 import { PageHero } from '../components/PageHero'
 import { PhotoBand } from '../components/PhotoBand'
 import { WhatsHappeningGrid } from '../components/WhatsHappeningGrid'
+import styles from './page.module.css'
 
 export const metadata = {
   title: 'שותפים ותוכניות | איפכא',
@@ -25,9 +26,10 @@ export default async function PartnersPage() {
     <>
       <PageHero image={heroImage} title="מה תמצאו אצלנו?" />
 
-      <MapAccordion />
-
-      <WhatsHappeningGrid items={whatsHappening.docs} />
+      <div className={`${styles.pageBg} gridLinesBlue`}>
+        <MapAccordion />
+        <WhatsHappeningGrid items={whatsHappening.docs} />
+      </div>
 
       <PhotoBand />
     </>

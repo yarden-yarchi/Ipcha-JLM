@@ -11,13 +11,15 @@ import cardTitle2 from '../../../assets/home/image-19.png'
 import cardTitle3 from '../../../assets/home/image-20.png'
 import teamPhoto from '../../../assets/home/image-27.jpeg'
 import sparkPhoto from '../../../assets/home/image-09.jpeg'
-import stickerEyes from '../../../assets/home/sticker-eyes-pink.png'
+import stickerBg from '../../../assets/misc/sticker-bg.svg'
+import stickerText from '../../../assets/misc/sticker-text.svg'
 import sparkleStar from '../../../assets/misc/sparkle-star.png'
 import squiggle from '../../../assets/misc/squiggle-hero.svg'
 import { FoldedCornerCard, type FoldCorner } from './components/FoldedCornerCard'
 import { HeroCarousel } from './components/HeroCarousel'
 import { Nav } from './components/Nav'
 import { PhotoBand } from './components/PhotoBand'
+import { ScrollRotatingSticker } from './components/ScrollRotatingSticker'
 import { WorkshopTeaserCard } from './components/WorkshopTeaserCard'
 import styles from './page.module.css'
 
@@ -162,9 +164,13 @@ export default async function HomePage() {
           <div className={styles.sparkPhotoWrap}>
             <Image src={sparkPhoto} alt="" className={styles.sparkPhoto} />
           </div>
-          <Link href="/vision" className={styles.sparkStickerLink} aria-label="החזון שלנו">
-            <Image src={stickerEyes} alt="" className={styles.sparkSticker} />
-          </Link>
+          <ScrollRotatingSticker
+            href="/vision"
+            ariaLabel="החזון שלנו"
+            bgImage={stickerBg}
+            textImage={stickerText}
+            className={styles.sparkStickerLink}
+          />
         </div>
 
         {latestWorkshop && (

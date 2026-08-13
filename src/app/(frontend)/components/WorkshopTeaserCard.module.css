@@ -1,84 +1,225 @@
 .card {
+  position: relative;
   display: flex;
-  background: var(--color-blue);
-  border: 2px solid #fff;
-  border-radius: 76px;
-  overflow: hidden;
-  min-height: 416px;
+  align-items: stretch;
 }
 
 .content {
-  flex: 1;
+  flex: 2 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
+.titleRow {
+  background: var(--color-blue);
+  border-bottom: 1px solid #fff;
+  border-top-left-radius: 50px;
+  padding: 30px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
   font-family: var(--font-eshkolita), var(--font-arbel), sans-serif;
-  color: #fab8ff;
-  font-size: 40px;
   font-weight: 400;
+  color: #fab8ff;
+  font-size: 47px;
   text-align: center;
-  padding: 24px 32px;
   margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.descriptionRow {
+  position: relative;
+  background: var(--color-blue);
+  border-bottom: 1px solid #fff;
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .description {
   color: #fff;
-  font-size: 20px;
-  line-height: 1.5;
+  font-size: 24px;
+  line-height: 1.2;
   text-align: center;
-  padding: 20px 32px;
+  max-width: 558px;
   margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  flex: 1;
 }
 
-.meta {
+.starRight {
+  position: absolute;
+  right: -18px;
+  top: -18px;
+  width: 36px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+}
+
+.starLeft {
+  position: absolute;
+  left: -18px;
+  top: -18px;
+  width: 36px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+}
+
+.metaRow {
+  position: relative;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  width: 100%;
+}
+
+.metaCell {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 20px 8px;
+  background: var(--color-blue);
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
-  padding: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metaCellHours {
+  font-size: 32px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.metaCellDate {
+  font-size: 32px;
 }
 
 .cta {
-  display: block;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fab8ff;
   color: var(--color-blue);
   font-weight: 700;
-  font-size: 24px;
-  padding: 18px;
+  font-size: 28px;
+  padding: 20px 16px;
+  text-align: center;
+  border-bottom-left-radius: 50px;
+}
+
+.cta:hover,
+.cta:active {
+  scale: 1;
+}
+
+.ctaText {
+  display: inline-block;
+  transition: scale 0.15s ease;
+}
+
+.cta:hover .ctaText {
+  scale: 0.96;
+}
+
+.cta:active .ctaText {
+  scale: 0.93;
 }
 
 .imageWrap {
   position: relative;
-  width: 40%;
-  min-width: 220px;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .image {
   object-fit: cover;
 }
 
+.bubble {
+  position: absolute;
+  right: -15px;
+  bottom: -25px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--color-blue);
+  color: var(--color-blue);
+  font-family: var(--font-arbel), sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 26px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  transform: rotate(18.49deg);
+  z-index: 2;
+}
+
 @media (max-width: 800px) {
   .card {
     flex-direction: column;
-    border-radius: 40px;
+  }
+
+  .content {
+    flex: 1 1 auto;
+  }
+
+  .titleRow {
+    border-top-left-radius: 0;
+  }
+
+  .cta {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 
   .imageWrap {
+    flex: 0 0 auto;
     width: 100%;
     height: 220px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 40px;
   }
 
-  .meta {
-    flex-direction: column;
+  .bubble {
+    width: 100px;
+    height: 100px;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 8px;
+    right: -10px;
+    bottom: -18px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .metaCell {
+    font-size: 18px;
+  }
+
+  .metaCellHours,
+  .metaCellDate {
+    font-size: 20px;
+  }
+
+  .cta {
+    font-size: 20px;
   }
 }

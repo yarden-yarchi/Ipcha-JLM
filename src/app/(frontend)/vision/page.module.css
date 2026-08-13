@@ -1,8 +1,16 @@
 .intro {
   background-color: rgba(208, 235, 253, 0.4);
   border-radius: 0 0 100px 100px;
-  padding: 60px 32px 80px;
+  margin-top: -90px;
+  padding: 150px 32px 80px;
   text-align: center;
+}
+
+@media (max-width: 700px) {
+  .intro {
+    margin-top: -50px;
+    padding-top: 40px;
+  }
 }
 
 .introHeading {
@@ -11,27 +19,82 @@
   margin-bottom: 48px;
 }
 
-.introColumns {
-  max-width: 1200px;
+.beliefs {
+  max-width: 1020px;
   margin: 0 auto;
-  display: flex;
-  gap: 48px;
   text-align: right;
 }
 
-.introColumnStacked {
-  flex: 1 1 50%;
+.beliefsRow {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  justify-content: space-between;
+  gap: 48px;
 }
 
-.introParagraph {
-  flex: 1 1 50%;
+.beliefsRowDivided {
+  border-bottom: 1px solid var(--color-blue);
+  padding-bottom: 50px;
+}
+
+.beliefsRowSecond {
+  padding-top: 50px;
+}
+
+.beliefBox {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.beliefStar {
+  align-self: flex-end;
+  width: 38px;
+  height: 38px;
+}
+
+.beliefTextWrap {
+  align-self: flex-start;
+  padding-right: 30px;
+}
+
+.beliefParagraph {
   color: var(--color-blue);
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 0;
+  font-size: 24px;
+  line-height: 27px;
+  margin: 0 0 8px;
+}
+
+.beliefParagraph:last-child {
+  margin-bottom: 0;
+}
+
+.beliefParagraph strong {
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .beliefsRow {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .beliefsRowDivided {
+    padding-bottom: 32px;
+  }
+
+  .beliefsRowSecond {
+    padding-top: 32px;
+  }
+
+  .beliefTextWrap {
+    padding-right: 0;
+  }
+
+  .beliefParagraph {
+    font-size: 18px;
+    line-height: 1.5;
+  }
 }
 
 .quote {
@@ -42,6 +105,26 @@
   text-align: center;
   margin: 56px 0 0;
   line-height: 1.3;
+}
+
+.quoteHighlightWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.quoteHighlightBg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 65%;
+  background: var(--color-pink);
+  z-index: 0;
+}
+
+.quoteHighlightText {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 900px) {
@@ -63,70 +146,27 @@
   margin-bottom: 48px;
 }
 
-.stepsList {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
+/* איך מעצבים חוית הוראה */
 
-.stepCard {
-  border-radius: 60px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-  padding: 40px 56px;
-}
-
-.stepBlue {
-  background: var(--color-blue);
-  color: #fff;
-}
-
-.stepPink {
-  background: var(--color-pink);
-  color: var(--color-blue);
-}
-
-.stepTitle {
-  font-size: 32px;
-  margin: 0 0 16px;
-}
-
-.stepBlue .stepTitle {
-  color: var(--color-pink);
-}
-
-.stepPink .stepTitle {
-  color: var(--color-blue);
-}
-
-.stepNumber {
-  color: #fff;
-}
-
-.stepPink .stepNumber {
-  color: #fff;
-}
-
-.stepText {
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 0;
+.reflectionSection {
+  background-color: rgba(208, 235, 253, 0.4);
+  border-radius: 60px 60px 0 0;
+  padding: 40px 32px 160px;
 }
 
 @media (max-width: 700px) {
-  .stepCard {
-    padding: 28px 28px;
-    border-radius: 36px;
+  .reflectionSection {
+    border-radius: 36px 36px 0 0;
+  }
+
+  .reflectionSection {
+    padding-bottom: 140px;
   }
 }
-
-/* איך מעצבים חוית הוראה */
 
 .reflection {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 32px 80px;
   display: flex;
   align-items: center;
   gap: 48px;
@@ -137,16 +177,16 @@
   text-align: right;
 }
 
+.reflectionStar {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 8px;
+}
+
 .reflectionHeading {
   color: var(--color-blue);
   font-size: 32px;
   margin-bottom: 16px;
-}
-
-.reflectionSubheading {
-  color: var(--color-blue);
-  font-size: 24px;
-  margin: 24px 0 12px;
 }
 
 .reflectionText p {

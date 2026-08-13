@@ -1,0 +1,149 @@
+.stackWrap {
+  position: relative;
+  max-width: 1140px;
+  margin: 255px auto 0;
+  height: 260px;
+}
+
+.item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 30px);
+  cursor: pointer;
+}
+
+.stepCard {
+  display: flex;
+  align-items: stretch;
+  border-radius: 60px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.stepBlue {
+  background: var(--color-blue);
+  color: #fff;
+}
+
+.stepPink {
+  background: var(--color-pink);
+  color: var(--color-blue);
+}
+
+.stepContent {
+  flex: 1 1 50%;
+  min-width: 0;
+  padding: 40px 56px;
+}
+
+.stepImageWrap {
+  position: relative;
+  flex: 1 1 50%;
+  min-width: 0;
+  margin-left: -10px;
+  overflow: hidden;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+}
+
+.stepImage {
+  object-fit: contain;
+  object-position: left center;
+}
+
+.stepTitle {
+  font-size: 32px;
+  margin: 0 0 16px;
+}
+
+.stepBlue .stepTitle {
+  color: var(--color-pink);
+}
+
+.stepPink .stepTitle {
+  color: var(--color-blue);
+}
+
+.stepNumber {
+  color: #fff;
+}
+
+.stepPink .stepNumber {
+  color: #fff;
+}
+
+.stepText {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.item:nth-child(4) {
+  left: 0;
+  top: 0;
+}
+
+.item:nth-child(3) {
+  left: 35px;
+  top: -85px;
+}
+
+.item:nth-child(2) {
+  left: 70px;
+  top: -170px;
+}
+
+.item:nth-child(1) {
+  left: 105px;
+  top: -255px;
+}
+
+@media (max-width: 700px) {
+  .stackWrap {
+    height: 740px;
+  }
+
+  .item:nth-child(4) {
+    left: 0;
+    top: 0;
+  }
+
+  .item:nth-child(3) {
+    left: 25px;
+    top: -70px;
+  }
+
+  .item:nth-child(2) {
+    left: 50px;
+    top: -140px;
+  }
+
+  .item:nth-child(1) {
+    left: 75px;
+    top: -210px;
+  }
+
+  .stepCard {
+    flex-direction: column;
+    border-radius: 36px;
+  }
+
+  .stepContent {
+    order: 1;
+    flex: 1 1 auto;
+    padding: 28px 28px;
+  }
+
+  .stepImageWrap {
+    order: 2;
+    flex: 0 0 180px;
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 36px;
+    border-bottom-right-radius: 36px;
+  }
+
+  .stepImage {
+    object-position: center center;
+  }
+}
