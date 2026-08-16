@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import type { ContentLibraryItem, Media } from '@/payload-types'
+import { AdminEditLink } from './AdminEditLink'
 import styles from './ContentLibraryCard.module.css'
 
 const FREE_HINTS = ['ללא עלות', 'חינם', 'חינמי']
@@ -11,6 +12,7 @@ export function ContentLibraryCard({ item }: { item: ContentLibraryItem }) {
 
   return (
     <div className={styles.card}>
+      <AdminEditLink collection="content-library-items" id={item.id} />
       <div className={styles.imageWrap}>
         {image?.url && (
           <Image src={image.url} alt={image.alt} fill className={styles.image} sizes="(max-width: 700px) 90vw, 406px" />

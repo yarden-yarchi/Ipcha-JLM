@@ -26,7 +26,8 @@
 
 .whatWeDo {
   background-color: #fff;
-  padding: 150px 80px 80px;
+  margin-top: -50px;
+  padding: 70px 80px 80px;
 }
 
 .sectionHeadingWrap {
@@ -82,11 +83,11 @@
 
 @media (max-width: 700px) {
   .whatWeDo {
-    padding: 40px 20px 60px;
+    padding: 100px 20px 60px;
   }
 
   .sectionHeadingWrap {
-    width: auto;
+    width: fit-content;
     max-width: 100%;
     margin: 0 auto 40px;
   }
@@ -192,6 +193,10 @@
   display: block;
 }
 
+.teamTextShapeFill {
+  opacity: 0.7;
+}
+
 .teamTextContent {
   position: relative;
   z-index: 1;
@@ -202,6 +207,14 @@
   justify-content: center;
   align-items: flex-start;
   text-align: right;
+}
+
+.teamMobilePhotoWrap {
+  display: none;
+}
+
+.teamMobilePhoto {
+  object-fit: cover;
 }
 
 .teamTextContent h2 {
@@ -228,18 +241,46 @@
 
 @media (max-width: 700px) {
   .teamBlurb {
-    min-height: 620px;
+    min-height: 0;
+    overflow: visible;
+    background-color: #fff;
+    padding: 40px 20px;
+  }
+
+  .teamBlurbPhoto {
+    display: none;
   }
 
   .teamText {
-    left: 5%;
-    right: 5%;
-    width: auto;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
     max-width: none;
   }
 
+  .teamTextShape {
+    filter: drop-shadow(0 8px 20px rgba(5, 44, 209, 0.15));
+  }
+
+  .teamTextShapeFill {
+    opacity: 1;
+  }
+
   .teamTextContent {
-    padding: 28px;
+    height: auto;
+    padding: 60px 28px 28px;
+  }
+
+  .teamMobilePhotoWrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-top: 20px;
   }
 }
 

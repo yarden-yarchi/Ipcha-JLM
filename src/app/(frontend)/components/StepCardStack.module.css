@@ -10,7 +10,7 @@
 
 .stickyWrap {
   position: sticky;
-  top: 100px;
+  top: 180px;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -20,13 +20,13 @@
   position: relative;
   transform-origin: top center;
   width: 100%;
-  max-width: 1140px;
+  max-width: 800px;
 }
 
 .stepCard {
-  display: flex;
-  align-items: stretch;
-  min-height: 273px;
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
   border-radius: 60px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
@@ -42,27 +42,19 @@
 }
 
 .stepContent {
-  flex: 1 1 50%;
-  min-width: 0;
+  position: relative;
+  z-index: 1;
   padding: 40px 56px;
 }
 
-.stepImageWrap {
-  position: relative;
-  flex: 1 1 50%;
-  min-width: 0;
-  margin-left: -10px;
-  overflow: hidden;
-  border-top-left-radius: 60px;
-  border-bottom-left-radius: 60px;
-}
-
 .stepImage {
+  z-index: 0;
   object-fit: contain;
   object-position: left center;
 }
 
 .stepTitle {
+  width: 100%;
   font-size: 32px;
   margin: 0 0 16px;
 }
@@ -84,6 +76,7 @@
 }
 
 .stepText {
+  width: 60%;
   font-size: 18px;
   line-height: 1.5;
   margin: 0;
@@ -95,27 +88,20 @@
   }
 
   .stepCard {
-    flex-direction: column;
-    min-height: 564px;
+    min-height: 340px;
     border-radius: 36px;
   }
 
   .stepContent {
-    order: 1;
-    flex: 1 1 auto;
-    padding: 28px 28px;
+    padding: 28px;
   }
 
-  .stepImageWrap {
-    order: 2;
-    flex: 0 0 180px;
-    margin-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 36px;
-    border-bottom-right-radius: 36px;
+  .stepTitle {
+    font-size: 24px;
   }
 
-  .stepImage {
-    object-position: center center;
+  .stepText {
+    width: 100%;
+    font-size: 16px;
   }
 }

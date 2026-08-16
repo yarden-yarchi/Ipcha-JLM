@@ -22,12 +22,18 @@ export default async function PartnersPage() {
     limit: 50,
   })
 
+  const mapLocations = await payload.find({
+    collection: 'map-locations',
+    sort: 'order',
+    limit: 100,
+  })
+
   return (
     <>
       <PageHero image={heroImage} title="מה תמצאו אצלנו?" />
 
       <div className={`${styles.pageBg} gridLinesBlue`}>
-        <MapAccordion />
+        <MapAccordion locations={mapLocations.docs} />
         <WhatsHappeningGrid items={whatsHappening.docs} />
       </div>
 

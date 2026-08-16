@@ -4,6 +4,10 @@ import { isAdmin } from '../access/isAdmin'
 
 export const Users: CollectionConfig = {
   slug: 'users',
+  labels: {
+    singular: 'משתמש',
+    plural: 'משתמשים',
+  },
   admin: {
     useAsTitle: 'email',
   },

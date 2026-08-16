@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 import logo from '../../../../assets/logo-site.svg'
+import { useAdminBarOffset } from './AdminBarProvider'
 import styles from './Nav.module.css'
 
 const NAV_LINKS = [
@@ -40,9 +41,11 @@ export function Nav() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const closeMenu = () => setMenuOpen(false)
+  const adminBarOffset = useAdminBarOffset()
+  const offsetClass = adminBarOffset === 'bar' ? styles.offsetBar : ''
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${offsetClass}`}>
       <nav className={styles.pill} aria-label="ניווט ראשי">
         <Link href="/" className={styles.logo} aria-label="איפכא - לעמוד הבית">
           <Image src={logo} alt="איפכא" priority />

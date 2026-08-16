@@ -11,6 +11,11 @@ export const Workshops: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'date', 'location'],
+    components: {
+      edit: {
+        beforeDocumentControls: ['/components/admin/BackToListButton#BackToListButton'],
+      },
+    },
   },
   access: {
     read: () => true,
@@ -36,6 +41,11 @@ export const Workshops: CollectionConfig = {
       label: 'כותרת',
       type: 'text',
       required: true,
+      admin: {
+        components: {
+          Field: '/components/admin/LargeTitleField#LargeTitleField',
+        },
+      },
     },
     {
       name: 'description',

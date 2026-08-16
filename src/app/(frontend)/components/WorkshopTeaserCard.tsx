@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import type { Media, Workshop } from '@/payload-types'
 import sparkleStar from '../../../../assets/misc/sparkle-star.png'
+import { AdminEditLink } from './AdminEditLink'
 import styles from './WorkshopTeaserCard.module.css'
 
 function formatDate(dateString: string) {
@@ -17,6 +18,7 @@ export function WorkshopTeaserCard({ workshop }: { workshop: Workshop }) {
 
   return (
     <div className={styles.card}>
+      <AdminEditLink collection="workshops" id={workshop.id} />
       {image?.url && (
         <div className={styles.imageWrap}>
           <Image

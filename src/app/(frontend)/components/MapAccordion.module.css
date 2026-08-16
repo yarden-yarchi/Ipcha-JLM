@@ -6,9 +6,13 @@
   align-items: flex-start;
 }
 
+.mapPadding {
+  flex: 0 0 60%;
+  padding: 0 120px 120px;
+}
+
 .mapWrap {
   position: relative;
-  flex: 0 0 60%;
 }
 
 .mapImage {
@@ -145,12 +149,14 @@
     flex-direction: column;
   }
 
-  .mapWrap {
+  .mapPadding {
     max-width: 100%;
+    padding: 20px;
     order: 1;
   }
 
   .accordion {
     order: 2;
+    width: 100%;
   }
 }

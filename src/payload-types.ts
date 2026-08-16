@@ -72,6 +72,7 @@ export interface Config {
     workshops: Workshop;
     'content-library-items': ContentLibraryItem;
     'whats-happening-here': WhatsHappeningHere;
+    'map-locations': MapLocation;
     'contact-submissions': ContactSubmission;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -85,6 +86,7 @@ export interface Config {
     workshops: WorkshopsSelect<false> | WorkshopsSelect<true>;
     'content-library-items': ContentLibraryItemsSelect<false> | ContentLibraryItemsSelect<true>;
     'whats-happening-here': WhatsHappeningHereSelect<false> | WhatsHappeningHereSelect<true>;
+    'map-locations': MapLocationsSelect<false> | MapLocationsSelect<true>;
     'contact-submissions': ContactSubmissionsSelect<false> | ContactSubmissionsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -217,6 +219,25 @@ export interface WhatsHappeningHere {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "map-locations".
+ */
+export interface MapLocation {
+  id: number;
+  title: string;
+  description: string;
+  /**
+   * קובע את המספר על הסימון במפה ואת סדר ההופעה ברשימה
+   */
+  order: number;
+  position: {
+    x: number;
+    y: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "contact-submissions".
  */
 export interface ContactSubmission {
@@ -225,6 +246,8 @@ export interface ContactSubmission {
   phone: string;
   email: string;
   message: string;
+  privacyConsent?: boolean | null;
+  marketingConsent?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -271,6 +294,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'whats-happening-here';
         value: number | WhatsHappeningHere;
+      } | null)
+    | ({
+        relationTo: 'map-locations';
+        value: number | MapLocation;
       } | null)
     | ({
         relationTo: 'contact-submissions';
@@ -403,6 +430,23 @@ export interface WhatsHappeningHereSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "map-locations_select".
+ */
+export interface MapLocationsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  order?: T;
+  position?:
+    | T
+    | {
+        x?: T;
+        y?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "contact-submissions_select".
  */
 export interface ContactSubmissionsSelect<T extends boolean = true> {
@@ -410,6 +454,8 @@ export interface ContactSubmissionsSelect<T extends boolean = true> {
   phone?: T;
   email?: T;
   message?: T;
+  privacyConsent?: T;
+  marketingConsent?: T;
   updatedAt?: T;
   createdAt?: T;
 }

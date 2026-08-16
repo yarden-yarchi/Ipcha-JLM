@@ -11,6 +11,11 @@ export const ContentLibraryItems: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'price'],
+    components: {
+      edit: {
+        beforeDocumentControls: ['/components/admin/BackToListButton#BackToListButton'],
+      },
+    },
   },
   access: {
     read: () => true,
@@ -31,6 +36,11 @@ export const ContentLibraryItems: CollectionConfig = {
       label: 'כותרת',
       type: 'text',
       required: true,
+      admin: {
+        components: {
+          Field: '/components/admin/LargeTitleField#LargeTitleField',
+        },
+      },
     },
     {
       name: 'description',

@@ -55,6 +55,23 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+.legalLinks {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 12px auto 0;
+}
+
+.legalLinks a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+}
+
+.legalLinks a:hover {
+  color: #fff;
+}
+
 .whatsapp {
   position: absolute;
   bottom: 24px;

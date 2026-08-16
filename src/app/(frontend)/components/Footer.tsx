@@ -51,8 +51,17 @@ export function Footer() {
         <ContactForm />
       </div>
       <p className={styles.copyright}>כל הזכויות שמורות לאיפכא / קרדיטים מיתוג עיצוב בנייה צילום</p>
-      {/* TODO: לקשר למספר וואטסאפ אמיתי */}
-      <a href="#" className={styles.whatsapp} aria-label="שלחו לנו הודעה בוואטסאפ">
+      <div className={styles.legalLinks}>
+        <Link href="/privacy-policy">מדיניות פרטיות</Link>
+        <Link href="/accessibility">הצהרת נגישות</Link>
+      </div>
+      <a
+        href="https://wa.me/972733946200"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.whatsapp}
+        aria-label="שלחו לנו הודעה בוואטסאפ"
+      >
         <Image src={whatsappBubble} alt="" />
       </a>
     </footer>

@@ -17,7 +17,6 @@ import sparkleStar from '../../../assets/misc/sparkle-star.png'
 import squiggle from '../../../assets/misc/squiggle-hero.svg'
 import { FoldedCornerCard, type FoldCorner } from './components/FoldedCornerCard'
 import { HeroCarousel } from './components/HeroCarousel'
-import { Nav } from './components/Nav'
 import { PhotoBand } from './components/PhotoBand'
 import { ScrollRotatingSticker } from './components/ScrollRotatingSticker'
 import { WorkshopTeaserCard } from './components/WorkshopTeaserCard'
@@ -85,7 +84,6 @@ export default async function HomePage() {
       <section className={styles.hero}>
         <HeroCarousel images={[heroSlide1, heroSlide2, heroSlide3]} />
         <Image src={squiggle} alt="" className={styles.heroSquiggle} />
-        <Nav />
       </section>
 
       <section className={`${styles.whatWeDo} gridLinesBlue`}>
@@ -112,7 +110,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className={styles.teamBlurb}>
+      <section className={`${styles.teamBlurb} gridLinesWhite`}>
         <Image src={teamPhoto} alt="צוות איפכא" fill className={styles.teamBlurbPhoto} />
         <div className={styles.teamText}>
           <svg
@@ -121,7 +119,7 @@ export default async function HomePage() {
             preserveAspectRatio="none"
             aria-hidden="true"
           >
-            <g opacity="0.7">
+            <g className={styles.teamTextShapeFill}>
               <path
                 d="M88.0038 0H386.019C419.148 0 446 23.2548 446 51.9451V442.055C446 470.742 419.148 494 386.019 494H59.9811C26.856 494 2.38419e-06 470.745 2.38419e-06 442.055V88.3285L88.0038 0Z"
                 fill="white"
@@ -142,6 +140,9 @@ export default async function HomePage() {
             <Link href="/vision" className={styles.teamCta}>
               רוצים לגלות עוד?
             </Link>
+            <div className={styles.teamMobilePhotoWrap}>
+              <Image src={teamPhoto} alt="" fill className={styles.teamMobilePhoto} />
+            </div>
           </div>
         </div>
       </section>

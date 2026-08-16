@@ -1,11 +1,16 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 24px;
   left: 32px;
   right: 32px;
   z-index: 50;
   display: flex;
   justify-content: center;
+  transition: top 0.15s ease;
+}
+
+.offsetBar {
+  top: calc(24px + 40px);
 }
 
 .pill {
@@ -119,6 +124,10 @@
     align-items: center;
   }
 
+  .offsetBar {
+    top: calc(12px + 40px);
+  }
+
   .pill {
     width: 100%;
     justify-content: space-between;
@@ -137,12 +146,20 @@
   .mobileMenu {
     display: block;
     margin: 10px auto 0;
-    width: fit-content;
-    max-width: 100%;
+    width: 100%;
     background: rgba(255, 255, 255, 0.97);
     border-radius: 28px;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.25);
     padding: 20px 24px;
+  }
+
+  .logo {
+    width: 115px;
+    height: 27px;
+  }
+
+  .logo img {
+    height: 75px;
   }
 
   .mobileLinks {

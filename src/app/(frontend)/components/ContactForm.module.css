@@ -35,6 +35,29 @@
   border-bottom-color: #fff;
 }
 
+.checkboxField {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.checkboxField input {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--color-orange);
+  cursor: pointer;
+}
+
+.checkboxField a {
+  color: var(--color-orange);
+  text-decoration: underline;
+}
+
 .submit {
   align-self: flex-start;
   background: var(--color-orange);

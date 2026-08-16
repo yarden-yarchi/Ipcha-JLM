@@ -10,6 +10,11 @@ export const WhatsHappeningHere: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
+    components: {
+      edit: {
+        beforeDocumentControls: ['/components/admin/BackToListButton#BackToListButton'],
+      },
+    },
   },
   access: {
     read: () => true,
@@ -30,6 +35,11 @@ export const WhatsHappeningHere: CollectionConfig = {
       label: 'כותרת',
       type: 'text',
       required: true,
+      admin: {
+        components: {
+          Field: '/components/admin/LargeTitleField#LargeTitleField',
+        },
+      },
     },
     {
       name: 'text',

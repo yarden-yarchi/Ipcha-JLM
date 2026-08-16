@@ -25,7 +25,7 @@
   font-family: var(--font-eshkolita), var(--font-arbel), sans-serif;
   font-weight: 400;
   color: #fab8ff;
-  font-size: 47px;
+  font-size: 36px;
   text-align: center;
   margin: 0;
 }
@@ -42,7 +42,7 @@
 
 .description {
   color: #fff;
-  font-size: 24px;
+  font-size: 1.2em;
   line-height: 1.2;
   text-align: center;
   max-width: 558px;
@@ -81,7 +81,8 @@
   padding: 20px 8px;
   background: var(--color-blue);
   color: #fff;
-  font-size: 24px;
+  font-size: 1.2em;
+  line-height: 1.25;
   text-align: center;
   display: flex;
   align-items: center;
@@ -89,13 +90,8 @@
 }
 
 .metaCellHours {
-  font-size: 32px;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
-}
-
-.metaCellDate {
-  font-size: 32px;
 }
 
 .cta {
@@ -105,7 +101,7 @@
   background: #fab8ff;
   color: var(--color-blue);
   font-weight: 700;
-  font-size: 28px;
+  font-size: 1.2em;
   padding: 20px 16px;
   text-align: center;
   border-bottom-left-radius: 50px;
@@ -154,13 +150,13 @@
   color: var(--color-blue);
   font-family: var(--font-arbel), sans-serif;
   font-weight: 400;
-  font-size: 28px;
-  line-height: 26px;
+  font-size: 1em;
+  line-height: 1.2;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 20px;
   transform: rotate(18.49deg);
   z-index: 2;
 }
@@ -195,31 +191,16 @@
   .bubble {
     width: 100px;
     height: 100px;
-    font-size: 18px;
-    line-height: 18px;
-    padding: 8px;
-    right: -10px;
-    bottom: -18px;
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 12px;
+    right: 20px;
+    bottom: auto;
+    top: 185px;
+    transform: translateY(-50%) rotate(18.49deg);
   }
 
   .title {
     font-size: 30px;
-  }
-
-  .description {
-    font-size: 18px;
-  }
-
-  .metaCell {
-    font-size: 18px;
-  }
-
-  .metaCellHours,
-  .metaCellDate {
-    font-size: 20px;
-  }
-
-  .cta {
-    font-size: 20px;
   }
 }

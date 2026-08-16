@@ -37,14 +37,12 @@ function StickyStepCard({
           step.color === 'blue' ? styles.stepBlue : styles.stepPink
         }`}
       >
+        <Image src={step.image} alt="" fill className={styles.stepImage} />
         <div className={styles.stepContent}>
           <h3 className={styles.stepTitle}>
             <span className={styles.stepNumber}>{step.number}/</span> {step.title}
           </h3>
           <p className={styles.stepText}>{step.text}</p>
-        </div>
-        <div className={styles.stepImageWrap}>
-          <Image src={step.image} alt="" fill className={styles.stepImage} />
         </div>
       </motion.div>
     </div>

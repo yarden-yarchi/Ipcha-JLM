@@ -1,12 +1,20 @@
 'use client'
 
+import Link from 'next/link'
 import { useState, type FormEvent } from 'react'
 
 import styles from './ContactForm.module.css'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
-const EMPTY_FORM = { name: '', phone: '', email: '', message: '' }
+const EMPTY_FORM = {
+  name: '',
+  phone: '',
+  email: '',
+  message: '',
+  privacyConsent: false,
+  marketingConsent: false,
+}
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
@@ -72,6 +80,27 @@ export function ContactForm() {
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
         />
+      </label>
+
+      <label className={styles.checkboxField}>
+        <input
+          type="checkbox"
+          required
+          checked={form.privacyConsent}
+          onChange={(e) => setForm((f) => ({ ...f, privacyConsent: e.target.checked }))}
+        />
+        <span>
+          קראתי ואני מסכימ/ה ל<Link href="/privacy-policy">מדיניות הפרטיות</Link>
+        </span>
+      </label>
+
+      <label className={styles.checkboxField}>
+        <input
+          type="checkbox"
+          checked={form.marketingConsent}
+          onChange={(e) => setForm((f) => ({ ...f, marketingConsent: e.target.checked }))}
+        />
+        <span>אני מעוניינ/ת לקבל עדכונים ותוכן שיווקי מאיפכא</span>
       </label>
 
       <button type="submit" className={styles.submit} disabled={status === 'submitting'}>

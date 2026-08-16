@@ -9,7 +9,7 @@
 @media (max-width: 700px) {
   .intro {
     margin-top: -50px;
-    padding-top: 40px;
+    padding-top: 100px;
   }
 }
 
@@ -48,7 +48,7 @@
 }
 
 .beliefStar {
-  align-self: flex-end;
+  align-self: flex-start;
   width: 38px;
   height: 38px;
 }
@@ -80,11 +80,17 @@
   }
 
   .beliefsRowDivided {
-    padding-bottom: 32px;
+    padding-bottom: 0;
+    border-bottom: none;
   }
 
   .beliefsRowSecond {
-    padding-top: 32px;
+    padding-top: 0;
+  }
+
+  .beliefBox {
+    border-bottom: 1px solid var(--color-blue);
+    padding-bottom: 32px;
   }
 
   .beliefTextWrap {
@@ -151,7 +157,7 @@
 .reflectionSection {
   background-color: rgba(208, 235, 253, 0.4);
   border-radius: 60px 60px 0 0;
-  padding: 40px 32px 160px;
+  padding: 90px 32px 210px;
 }
 
 @media (max-width: 700px) {
@@ -160,7 +166,7 @@
   }
 
   .reflectionSection {
-    padding-bottom: 140px;
+    padding-bottom: 190px;
   }
 }
 
