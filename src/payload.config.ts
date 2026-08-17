@@ -1,5 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { resendAdapter } from '@payloadcms/email-resend'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { he } from '@payloadcms/translations/languages/he'
@@ -19,21 +19,13 @@ import { ContactSubmissions } from './collections/ContactSubmissions'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-// SMTP email delivery (contact form leads). Only enabled once SMTP env vars are set —
-// falls back to Payload's default console-logging behavior in dev otherwise.
-const emailAdapter = process.env.SMTP_HOST
-  ? await nodemailerAdapter({
-      defaultFromAddress: process.env.SMTP_FROM || 'noreply@ipcha.org.il',
+// Resend email delivery (contact form leads, password resets). Only enabled once
+// RESEND_API_KEY is set — falls back to Payload's default console-logging behavior otherwise.
+const emailAdapter = process.env.RESEND_API_KEY
+  ? resendAdapter({
+      apiKey: process.env.RESEND_API_KEY,
+      defaultFromAddress: process.env.RESEND_FROM || 'noreply@ipcha.org.il',
       defaultFromName: 'איפכא',
-      transportOptions: {
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT) || 587,
-        secure: process.env.SMTP_SECURE === 'true',
-        auth: {
-          user: process.env.SMTP_USER || '',
-          pass: process.env.SMTP_PASS || '',
-        },
-      },
     })
   : undefined
 
