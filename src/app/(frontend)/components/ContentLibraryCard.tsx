@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import type { ContentLibraryItem, Media } from '@/payload-types'
@@ -11,7 +14,13 @@ export function ContentLibraryCard({ item }: { item: ContentLibraryItem }) {
   const isFree = FREE_HINTS.some((hint) => item.price.includes(hint))
 
   return (
-    <div className={styles.card}>
+    <motion.div
+      className={styles.card}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       <AdminEditLink collection="content-library-items" id={item.id} />
       <div className={styles.imageWrap}>
         {image?.url && (
@@ -26,6 +35,6 @@ export function ContentLibraryCard({ item }: { item: ContentLibraryItem }) {
         </a>
         <span className={styles.price}>{item.price}</span>
       </div>
-    </div>
+    </motion.div>
   )
 }

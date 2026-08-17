@@ -7,6 +7,7 @@ import doodle2 from '../../../../assets/vision/doodle-2.png'
 import doodle3 from '../../../../assets/vision/doodle-3.png'
 import doodle4 from '../../../../assets/vision/doodle-4.png'
 import supportPhoto from '../../../../assets/home/image-07.jpeg'
+import { FadeInView } from '../components/FadeInView'
 import { PageHero } from '../components/PageHero'
 import { PhotoBand } from '../components/PhotoBand'
 import { StepCardStack, type Step } from '../components/StepCardStack'
@@ -129,10 +130,10 @@ export default function VisionPage() {
               }`}
             >
               {row.map((item, itemIndex) => (
-                <div key={itemIndex} className={styles.beliefBox}>
+                <FadeInView key={itemIndex} className={styles.beliefBox}>
                   <Image src={starPink} alt="" className={styles.beliefStar} />
                   <div className={styles.beliefTextWrap}>{item.content}</div>
-                </div>
+                </FadeInView>
               ))}
             </div>
           ))}

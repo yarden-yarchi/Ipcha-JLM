@@ -7,6 +7,7 @@ import { createPortal } from 'react-dom'
 import type { Media, WhatsHappeningHere } from '@/payload-types'
 import starOrange from '../../../../assets/partners/star-orange.svg'
 import { AdminEditLink } from './AdminEditLink'
+import { FadeInView } from './FadeInView'
 import styles from './WhatsHappeningGrid.module.css'
 
 export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
@@ -23,7 +24,7 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
         {items.map((item) => {
           const image = item.image as Media
           return (
-            <div key={item.id} className={styles.cardWrap}>
+            <FadeInView key={item.id} className={styles.cardWrap}>
               <button type="button" className={styles.card} onClick={() => setActive(item)}>
                 {image?.url && (
                   <Image
@@ -40,7 +41,7 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
                 </span>
               </button>
               <AdminEditLink collection="whats-happening-here" id={item.id} />
-            </div>
+            </FadeInView>
           )
         })}
         {items.length === 0 && <p className={styles.empty}>עדיין אין פריטים.</p>}
