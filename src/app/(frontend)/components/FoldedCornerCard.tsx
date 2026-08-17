@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 import styles from './FoldedCornerCard.module.css'
@@ -23,7 +26,13 @@ export function FoldedCornerCard({
   children: ReactNode
 }) {
   return (
-    <div className={`${styles.card} ${className ?? ''}`}>
+    <motion.div
+      className={`${styles.card} ${className ?? ''}`}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       <svg
         className={`${styles.shape} ${CORNER_CLASS[corner]}`}
         viewBox="0 0 393 503"
@@ -40,6 +49,6 @@ export function FoldedCornerCard({
         />
       </svg>
       <div className={styles.content}>{children}</div>
-    </div>
+    </motion.div>
   )
 }
