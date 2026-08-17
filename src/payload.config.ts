@@ -1,6 +1,6 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
-import { s3Storage } from '@payloadcms/storage-s3'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { he } from '@payloadcms/translations/languages/he'
 import path from 'path'
@@ -91,23 +91,15 @@ export default buildConfig({
   }),
   sharp,
   plugins: [
-    // Cloudflare R2 (S3-compatible) storage for uploaded media.
-    // Only enabled once R2 env vars are set — falls back to local disk storage in dev otherwise.
-    ...(process.env.S3_BUCKET
+    // Vercel Blob storage for uploaded media.
+    // Only enabled once BLOB_READ_WRITE_TOKEN is set — falls back to local disk storage in dev otherwise.
+    ...(process.env.BLOB_READ_WRITE_TOKEN
       ? [
-          s3Storage({
+          vercelBlobStorage({
             collections: {
               media: true,
             },
-            bucket: process.env.S3_BUCKET,
-            config: {
-              endpoint: process.env.S3_ENDPOINT,
-              region: 'auto',
-              credentials: {
-                accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
-                secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
-              },
-            },
+            token: process.env.BLOB_READ_WRITE_TOKEN,
           }),
         ]
       : []),

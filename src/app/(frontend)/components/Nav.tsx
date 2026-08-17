@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import logo from '../../../../assets/logo-site.svg'
 import { useAdminBarOffset } from './AdminBarProvider'
@@ -43,9 +43,23 @@ export function Nav() {
   const closeMenu = () => setMenuOpen(false)
   const adminBarOffset = useAdminBarOffset()
   const offsetClass = adminBarOffset === 'bar' ? styles.offsetBar : ''
+  const headerRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    function handleClickOutside(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [menuOpen])
 
   return (
-    <header className={`${styles.header} ${offsetClass}`}>
+    <header ref={headerRef} className={`${styles.header} ${offsetClass}`}>
       <nav className={styles.pill} aria-label="ניווט ראשי">
         <Link href="/" className={styles.logo} aria-label="איפכא - לעמוד הבית">
           <Image src={logo} alt="איפכא" priority />
@@ -63,7 +77,7 @@ export function Nav() {
 
         <button
           type="button"
-          className={styles.hamburger}
+          className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
           aria-label={menuOpen ? 'סגירת תפריט' : 'פתיחת תפריט'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}

@@ -9,7 +9,7 @@ import heroSlide3 from '../../../assets/hero-slides/hero-slide-3.png'
 import cardTitle1 from '../../../assets/home/image-18.png'
 import cardTitle2 from '../../../assets/home/image-19.png'
 import cardTitle3 from '../../../assets/home/image-20.png'
-import teamPhoto from '../../../assets/home/image-27.jpeg'
+import teamPhoto from '../../../assets/home/image-27-alt.jpeg'
 import sparkPhoto from '../../../assets/home/image-09.jpeg'
 import stickerBg from '../../../assets/misc/sticker-bg.svg'
 import stickerText from '../../../assets/misc/sticker-text.svg'
@@ -113,25 +113,18 @@ export default async function HomePage() {
       <section className={`${styles.teamBlurb} gridLinesWhite`}>
         <Image src={teamPhoto} alt="צוות איפכא" fill className={styles.teamBlurbPhoto} />
         <div className={styles.teamText}>
-          <svg
-            className={styles.teamTextShape}
-            viewBox="0 0 446 494"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <g className={styles.teamTextShapeFill}>
-              <path
-                d="M88.0038 0H386.019C419.148 0 446 23.2548 446 51.9451V442.055C446 470.742 419.148 494 386.019 494H59.9811C26.856 494 2.38419e-06 470.745 2.38419e-06 442.055V88.3285L88.0038 0Z"
-                fill="white"
-              />
-              <path
-                d="M88.3729 36.3833C88.3729 65.0705 61.5206 88.3285 28.3918 88.3285H0.36546L88.3729 0V36.3833Z"
-                fill="#E6E6E6"
-              />
-            </g>
+          <div className={styles.teamTextInner} />
+          <svg className={styles.teamTextFold} viewBox="0 0 89 89" aria-hidden="true">
+            <path
+              d="M88.3729 36.3833C88.3729 65.0705 61.5206 88.3285 28.3918 88.3285H0.36546L88.3729 0V36.3833Z"
+              fill="#E6E6E6"
+            />
           </svg>
           <div className={styles.teamTextContent}>
-            <h2>היי, אנחנו איפכא!</h2>
+            <div className={styles.teamTextHeadingWrap}>
+              <div className={styles.teamTextFoldSpacer} />
+              <h2>היי, אנחנו איפכא!</h2>
+            </div>
             <p>
               צוות של אנשי חינוך ומעצבים מתחומים מגוונים. הידע והניסיון שלנו יוצרים חיבור ודרך פעולה
               ייחודית, המאפשרת לנו לחבור לצוותי חינוך, לזהות אתגרים, להפוך אותם להזדמנויות ולהתנסות
@@ -150,9 +143,21 @@ export default async function HomePage() {
       <section className={`${styles.spark} gridLinesWhite`}>
         <div className={styles.sparkCard}>
           <div className={styles.sparkText}>
-            <h2 className={styles.sparkHeadingWrap}>
-              <span className={styles.sparkHeadingBg} />
-              <span className={styles.sparkHeading}>מחפשים את הניצוץ?</span>
+            <h2 className={styles.sparkHeading}>
+              <span className={styles.sparkHeadingDesktopOnly}>
+                <span className={styles.sparkHeadingBgDesktop} />
+                <span className={styles.sparkHeadingText}>מחפשים את הניצוץ?</span>
+              </span>
+              <span className={styles.sparkHeadingMobileOnly}>
+                <span className={styles.sparkHeadingHighlight}>
+                  <span className={styles.sparkHeadingBg} />
+                  <span className={styles.sparkHeadingText}>מחפשים את</span>
+                </span>{' '}
+                <span className={styles.sparkHeadingHighlight}>
+                  <span className={styles.sparkHeadingBg} />
+                  <span className={styles.sparkHeadingText}>הניצוץ?</span>
+                </span>
+              </span>
             </h2>
             <p>
               אנחנו באיפכא פותחים לכם את הדלת ללמידה והתנסות. בואו להעשיר את ארגז הכלים שלכם בחדשנות
@@ -163,7 +168,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className={styles.sparkPhotoWrap}>
-            <Image src={sparkPhoto} alt="" className={styles.sparkPhoto} />
+            <Image src={sparkPhoto} alt="" fill className={styles.sparkPhoto} />
           </div>
           <ScrollRotatingSticker
             href="/vision"

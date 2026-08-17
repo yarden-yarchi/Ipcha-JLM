@@ -90,11 +90,8 @@
 }
 
 .hamburger {
+  position: relative;
   display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
   flex-shrink: 0;
   width: 40px;
   height: 40px;
@@ -104,11 +101,39 @@
 }
 
 .hamburgerLine {
-  display: block;
-  width: 24px;
+  position: absolute;
+  right: 8px;
+  left: 8px;
   height: 2px;
   background: var(--color-blue);
   border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.hamburgerLine:nth-child(1) {
+  top: 14px;
+}
+
+.hamburgerLine:nth-child(2) {
+  top: 19px;
+}
+
+.hamburgerLine:nth-child(3) {
+  top: 24px;
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(1) {
+  top: 19px;
+  transform: rotate(45deg);
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen .hamburgerLine:nth-child(3) {
+  top: 19px;
+  transform: rotate(-45deg);
 }
 
 .mobileMenu {

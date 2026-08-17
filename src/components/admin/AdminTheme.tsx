@@ -124,12 +124,18 @@ export function AdminTheme() {
          sizes itself around the new, usually-longer, text instead of the old short one. */
       .list-create-new-doc__create-new-button {
         font-size: 0;
-        padding: 0 1em !important;
+        height: auto !important;
+        padding: 9px !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
       }
 
       .list-create-new-doc__create-new-button::before {
         content: attr(title);
+        font-family: 'ArbelG', sans-serif;
         font-size: 0.8125rem;
+        line-height: 1;
         color: #052cd1;
         white-space: nowrap;
       }

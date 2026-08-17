@@ -18,6 +18,12 @@ const SITEMAP_LINKS = [
   { href: '/content-library', label: 'מאגר תכנים' },
 ]
 
+const CREDITS = [
+  { label: 'עיצוב: טלי גלעד', href: 'https://taligilad.co.il/' },
+  { label: 'צילומים: מרסל דייצ׳ב', href: 'https://www.instagram.com/marcelle_photographer/' },
+  { label: 'פיתוח: ירדן ירחי', href: 'https://yarden-yarchi.com' },
+]
+
 // TODO: להחליף בקישורים חיצוניים אמיתיים (רשתות חברתיות, טלפון, מייל, מיקום, וואטסאפ) כשיישלחו
 const SOCIAL_LINKS = [
   { icon: iconInstagram, href: '#', label: 'אינסטגרם' },
@@ -50,7 +56,14 @@ export function Footer() {
         </div>
         <ContactForm />
       </div>
-      <p className={styles.copyright}>כל הזכויות שמורות לאיפכא / קרדיטים מיתוג עיצוב בנייה צילום</p>
+      <p className={styles.copyright}>כל הזכויות שמורות לאיפכא</p>
+      <div className={styles.credits}>
+        {CREDITS.map((credit) => (
+          <a key={credit.label} href={credit.href} target="_blank" rel="noopener noreferrer">
+            {credit.label}
+          </a>
+        ))}
+      </div>
       <div className={styles.legalLinks}>
         <Link href="/privacy-policy">מדיניות פרטיות</Link>
         <Link href="/accessibility">הצהרת נגישות</Link>

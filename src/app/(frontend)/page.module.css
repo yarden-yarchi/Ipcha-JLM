@@ -27,7 +27,7 @@
 .whatWeDo {
   background-color: #fff;
   margin-top: -50px;
-  padding: 70px 80px 80px;
+  padding: 90px 80px 80px;
 }
 
 .sectionHeadingWrap {
@@ -173,6 +173,7 @@
 
 .teamBlurbPhoto {
   object-fit: cover;
+  object-position: right center;
 }
 
 .teamText {
@@ -182,24 +183,32 @@
   left: 6%;
   width: 90%;
   max-width: 446px;
+  border-radius: 28px;
+  overflow: hidden;
+  filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.15));
 }
 
-.teamTextShape {
+.teamTextInner {
   position: absolute;
   inset: 0;
   z-index: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
+  background: #fff;
+  clip-path: polygon(88px 0, 100% 0, 100% 100%, 0 100%, 0 88px);
 }
 
-.teamTextShapeFill {
+.teamTextFold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 88px;
+  height: 88px;
   opacity: 0.7;
 }
 
 .teamTextContent {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   height: 100%;
   padding: 60px 48px;
   display: flex;
@@ -209,12 +218,23 @@
   text-align: right;
 }
 
+.teamTextHeadingWrap {
+  width: 100%;
+}
+
+.teamTextFoldSpacer {
+  float: left;
+  width: 60px;
+  height: 28px;
+}
+
 .teamMobilePhotoWrap {
   display: none;
 }
 
 .teamMobilePhoto {
   object-fit: cover;
+  object-position: right center;
 }
 
 .teamTextContent h2 {
@@ -244,6 +264,10 @@
     min-height: 0;
     overflow: visible;
     background-color: #fff;
+    background-image:
+      linear-gradient(to right, rgba(5, 44, 209, 0.2) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(5, 44, 209, 0.2) 1px, transparent 1px);
+    background-size: 70px 70px;
     padding: 40px 20px;
   }
 
@@ -258,14 +282,11 @@
     left: auto;
     width: 100%;
     max-width: none;
+    filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.15));
   }
 
-  .teamTextShape {
-    filter: drop-shadow(0 8px 20px rgba(5, 44, 209, 0.15));
-  }
-
-  .teamTextShapeFill {
-    opacity: 1;
+  .teamTextInner {
+    background: #f5f5f5;
   }
 
   .teamTextContent {
@@ -316,17 +337,15 @@
 }
 
 .sparkPhoto {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .sparkStickerLink {
   position: absolute;
-  left: 40.8%;
-  top: calc(54.6% + 20px);
-  width: 18.2%;
+  left: calc(40.8% + 100px);
+  top: auto;
+  bottom: -20px;
+  width: 170px;
   aspect-ratio: 1;
   display: block;
 }
@@ -342,13 +361,20 @@
   text-align: right;
 }
 
-.sparkHeadingWrap {
-  position: relative;
-  display: inline-block;
+.sparkHeading {
   margin: 0 0 24px;
+  color: var(--color-blue);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1em;
 }
 
-.sparkHeadingBg {
+.sparkHeadingDesktopOnly {
+  position: relative;
+  display: inline-block;
+}
+
+.sparkHeadingBgDesktop {
   position: absolute;
   left: 0;
   right: 0;
@@ -358,14 +384,28 @@
   z-index: 0;
 }
 
-.sparkHeading {
+.sparkHeadingMobileOnly {
+  display: none;
+}
+
+.sparkHeadingHighlight {
+  position: relative;
+  display: inline-block;
+}
+
+.sparkHeadingBg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 17px;
+  height: 14px;
+  background: #f9c6f0;
+  z-index: 0;
+}
+
+.sparkHeadingText {
   position: relative;
   z-index: 1;
-  display: inline-block;
-  color: var(--color-blue);
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.2;
 }
 
 .sparkText p {
@@ -394,6 +434,14 @@
     padding-bottom: 140px;
   }
 
+  .sparkHeadingDesktopOnly {
+    display: none;
+  }
+
+  .sparkHeadingMobileOnly {
+    display: inline;
+  }
+
   .sparkCard {
     flex-direction: column;
     border-radius: 50px;
@@ -401,16 +449,19 @@
   }
 
   .sparkPhotoWrap {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
     border-radius: 30px;
   }
 
   .sparkStickerLink {
-    left: auto;
-    right: 20px;
+    left: 20px;
+    right: auto;
     top: auto;
-    bottom: -50px;
-    width: 91px;
+    bottom: -20px;
+    width: 135px;
     aspect-ratio: 1;
+    margin-left: 20px;
   }
 
   .sparkText {
@@ -421,9 +472,8 @@
 
   .sparkCta {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    white-space: nowrap;
+    padding: 14px 10px;
+    font-size: 20px;
     text-align: center;
   }
 }

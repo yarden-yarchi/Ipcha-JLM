@@ -55,6 +55,23 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+.credits {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 12px auto 0;
+}
+
+.credits a {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+}
+
+.credits a:hover {
+  color: #fff;
+}
+
 .legalLinks {
   display: flex;
   justify-content: center;

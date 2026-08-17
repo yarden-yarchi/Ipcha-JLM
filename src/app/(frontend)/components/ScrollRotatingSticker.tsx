@@ -22,6 +22,7 @@ export function ScrollRotatingSticker({
   const textRef = useRef<HTMLImageElement>(null)
   const linkRef = useRef<HTMLAnchorElement>(null)
   const baseScrollRef = useRef<number | null>(null)
+  const ENTRY_ANGLE = 90
 
   useEffect(() => {
     let frame = 0
@@ -29,7 +30,7 @@ export function ScrollRotatingSticker({
     const rotate = () => {
       frame = 0
       if (baseScrollRef.current === null) return
-      const angle = ((window.scrollY - baseScrollRef.current) * 0.15) % 360
+      const angle = (ENTRY_ANGLE + (window.scrollY - baseScrollRef.current) * 0.15) % 360
       if (textRef.current) {
         textRef.current.style.transform = `rotate(${angle}deg)`
       }
