@@ -1,3 +1,4 @@
+import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_dbe4c9beb3b0f2a7b7a12ce17b9c7d3a } from '@payloadcms/storage-vercel-blob/client'
 import { LargeTitleField as LargeTitleField_3d6a237d56f4cda6e5e4b7b62e46bc5f } from '../../../components/admin/LargeTitleField'
 import { BackToListButton as BackToListButton_4163e8a49881fa0dbdeab321b9e10771 } from '../../../components/admin/BackToListButton'
 import { MapPositionField as MapPositionField_35c86662ade9d3bfc07d02938445b489 } from '../../../components/admin/MapPositionField'
@@ -9,6 +10,7 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 
 /** @type import('payload').ImportMap */
 export const importMap = {
+  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_dbe4c9beb3b0f2a7b7a12ce17b9c7d3a,
   "/components/admin/LargeTitleField#LargeTitleField": LargeTitleField_3d6a237d56f4cda6e5e4b7b62e46bc5f,
   "/components/admin/BackToListButton#BackToListButton": BackToListButton_4163e8a49881fa0dbdeab321b9e10771,
   "/components/admin/MapPositionField#MapPositionField": MapPositionField_35c86662ade9d3bfc07d02938445b489,
