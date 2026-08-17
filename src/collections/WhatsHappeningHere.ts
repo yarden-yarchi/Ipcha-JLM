@@ -1,6 +1,9 @@
 import type { CollectionConfig } from 'payload'
 
 import { isAdmin } from '../access/isAdmin'
+import { revalidatePaths } from './hooks/revalidatePaths'
+
+const revalidate = revalidatePaths(['/partners'])
 
 export const WhatsHappeningHere: CollectionConfig = {
   slug: 'whats-happening-here',
@@ -21,6 +24,10 @@ export const WhatsHappeningHere: CollectionConfig = {
     create: isAdmin,
     update: isAdmin,
     delete: isAdmin,
+  },
+  hooks: {
+    afterChange: [revalidate.afterChange],
+    afterDelete: [revalidate.afterDelete],
   },
   fields: [
     {

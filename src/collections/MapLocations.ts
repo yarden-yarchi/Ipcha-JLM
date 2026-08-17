@@ -1,6 +1,9 @@
 import type { CollectionConfig, NumberFieldSingleValidation, PayloadRequest } from 'payload'
 
 import { isAdmin } from '../access/isAdmin'
+import { revalidatePaths } from './hooks/revalidatePaths'
+
+const revalidate = revalidatePaths(['/partners'])
 
 const getNextOrder = async (req: PayloadRequest) => {
   const result = await req.payload.find({
@@ -43,6 +46,10 @@ export const MapLocations: CollectionConfig = {
     create: isAdmin,
     update: isAdmin,
     delete: isAdmin,
+  },
+  hooks: {
+    afterChange: [revalidate.afterChange],
+    afterDelete: [revalidate.afterDelete],
   },
   fields: [
     {

@@ -1,6 +1,9 @@
 import type { CollectionConfig } from 'payload'
 
 import { isAdmin } from '../access/isAdmin'
+import { revalidatePaths } from './hooks/revalidatePaths'
+
+const revalidate = revalidatePaths(['/content-library'])
 
 export const ContentLibraryItems: CollectionConfig = {
   slug: 'content-library-items',
@@ -22,6 +25,10 @@ export const ContentLibraryItems: CollectionConfig = {
     create: isAdmin,
     update: isAdmin,
     delete: isAdmin,
+  },
+  hooks: {
+    afterChange: [revalidate.afterChange],
+    afterDelete: [revalidate.afterDelete],
   },
   fields: [
     {
