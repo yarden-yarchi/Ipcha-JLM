@@ -59,30 +59,32 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
               >
                 ✕
               </button>
-              <div className={styles.modalContent}>
-                <h3 className={styles.modalTitle}>{active.title}</h3>
-                <p className={styles.modalText}>{active.text}</p>
-                {active.buttonLabel && active.buttonUrl && (
-                  <a
-                    href={active.buttonUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.modalCta}
-                  >
-                    {active.buttonLabel}
-                  </a>
+              <div className={styles.modalScroll}>
+                <div className={styles.modalContent}>
+                  <h3 className={styles.modalTitle}>{active.title}</h3>
+                  <p className={styles.modalText}>{active.text}</p>
+                  {active.buttonLabel && active.buttonUrl && (
+                    <a
+                      href={active.buttonUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.modalCta}
+                    >
+                      {active.buttonLabel}
+                    </a>
+                  )}
+                </div>
+                {activeImage?.url && (
+                  <div className={styles.modalImageWrap}>
+                    <Image
+                      src={activeImage.url}
+                      alt={activeImage.alt}
+                      fill
+                      className={styles.modalImage}
+                    />
+                  </div>
                 )}
               </div>
-              {activeImage?.url && (
-                <div className={styles.modalImageWrap}>
-                  <Image
-                    src={activeImage.url}
-                    alt={activeImage.alt}
-                    fill
-                    className={styles.modalImage}
-                  />
-                </div>
-              )}
             </div>
           </div>,
           document.body,
