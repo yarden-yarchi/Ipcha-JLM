@@ -21,6 +21,10 @@
   object-fit: cover;
 }
 
+.content {
+  padding: 10px;
+}
+
 .title {
   color: var(--color-blue);
   font-size: 26px;
@@ -30,8 +34,8 @@
 
 .description {
   color: var(--color-blue);
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   margin: 12px 0 20px;
   text-align: right;
 }
@@ -46,13 +50,19 @@
 .cta {
   background: var(--color-orange);
   color: var(--color-blue);
-  font-size: 16px;
+  font-size: var(--font-size-body);
   padding: 8px 16px;
-  border-radius: 16px;
+  border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 
 .price {
   color: var(--color-blue);
   font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  .card {
+    border-radius: 30px;
+  }
 }

@@ -20,14 +20,14 @@
   position: relative;
   transform-origin: top center;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 .stepCard {
   position: relative;
   overflow: hidden;
   min-height: 340px;
-  border-radius: 60px;
+  border-radius: 40px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -77,8 +77,8 @@
 
 .stepText {
   width: 60%;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   margin: 0;
 }
 
@@ -89,7 +89,7 @@
 
   .stepCard {
     min-height: 340px;
-    border-radius: 36px;
+    border-radius: 30px;
   }
 
   .stepContent {

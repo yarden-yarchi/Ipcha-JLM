@@ -14,10 +14,11 @@
 }
 
 .pill {
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1140px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 40px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: var(--radius-pill);
@@ -31,6 +32,7 @@
   display: block;
   width: 200px;
   height: 46px;
+  margin-top: 2px;
 }
 
 .logo img {
@@ -45,7 +47,7 @@
 
 .links {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 32px;
   list-style: none;
   margin: 0;
@@ -57,6 +59,29 @@
   font-size: 18px;
   color: var(--color-blue);
   white-space: nowrap;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-orange);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.links a:hover::after,
+.links .linkActive::after {
+  opacity: 1;
+}
+
+.links .linkActiveBg {
+  display: none;
 }
 
 .linkActive {
@@ -83,7 +108,7 @@
   color: var(--color-blue);
   font-family: var(--font-arbel), sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: var(--font-size-body);
   padding: 12px 26px;
   border-radius: var(--radius-pill);
   white-space: nowrap;
@@ -202,6 +227,29 @@
     font-size: 18px;
     color: var(--color-blue);
     white-space: nowrap;
+    position: relative;
+    padding-bottom: 6px;
+  }
+
+  .mobileLinks a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--color-orange);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .mobileLinks a:hover::after,
+  .mobileLinks .linkActive::after {
+    opacity: 1;
+  }
+
+  .mobileLinks .linkActiveBg {
+    display: none;
   }
 
   .mobileCta {
@@ -212,7 +260,7 @@
     color: var(--color-blue);
     font-family: var(--font-arbel), sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: var(--font-size-body);
     padding: 12px 26px;
     border-radius: var(--radius-pill);
     white-space: nowrap;

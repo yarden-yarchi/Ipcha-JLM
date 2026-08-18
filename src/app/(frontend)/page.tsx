@@ -15,6 +15,7 @@ import stickerBg from '../../../assets/misc/sticker-bg.svg'
 import stickerText from '../../../assets/misc/sticker-text.svg'
 import sparkleStar from '../../../assets/misc/sparkle-star.png'
 import squiggle from '../../../assets/misc/squiggle-hero.svg'
+import squiggleMobile from '../../../assets/misc/squiggle-hero-mobile.png'
 import { FoldedCornerCard, type FoldCorner } from './components/FoldedCornerCard'
 import { HeroCarousel } from './components/HeroCarousel'
 import { PhotoBand } from './components/PhotoBand'
@@ -27,6 +28,7 @@ type StarPosition = 'top-left' | 'bottom-right' | 'top-right'
 const WHAT_WE_DO_CARDS: {
   titleImage: typeof cardTitle1
   titleAlt: string
+  titleRotate: number
   text: string
   ctaLabel: string
   href: string
@@ -36,6 +38,7 @@ const WHAT_WE_DO_CARDS: {
   {
     titleImage: cardTitle1,
     titleAlt: 'כאן מוצאים השראה',
+    titleRotate: 6.16,
     text: 'ספרייה מתעדכנת של עזרים פדגוגיים מעוצבים, שנועדו להכניס צבע, יצירתיות וחדשנות לכיתה שלך.',
     ctaLabel: 'למאגר התכנים >>',
     href: '/content-library',
@@ -45,6 +48,7 @@ const WHAT_WE_DO_CARDS: {
   {
     titleImage: cardTitle2,
     titleAlt: 'עוזרים להצית את הניצוץ',
+    titleRotate: -5.67,
     text: 'הזדמנויות ללמידה באמצעות כלי חשיבה עיצובית. מפגשים שמעניקים למורים כלים רעננים ליצירת הוראה רלוונטית ומותאמת, והופכים תיאוריה לפרקטיקה.',
     ctaLabel: 'סדנאות והשתלמויות >>',
     href: '/workshops',
@@ -54,6 +58,7 @@ const WHAT_WE_DO_CARDS: {
   {
     titleImage: cardTitle3,
     titleAlt: 'בתי ספר מעצבים לחיים',
+    titleRotate: 5.1,
     text: 'תהליך שמזהה אתגרים חינוכיים והופך אותם להזדמנויות. הזמנה לצאת מהשגרה ולחשוב כמו מעצבים: בואו להכיר פדגוגיה שיוצאת מהקופסה ונשארת מחוברת לכיתה.',
     ctaLabel: 'התפיסה שלנו >>',
     href: '/vision',
@@ -84,6 +89,7 @@ export default async function HomePage() {
       <section className={styles.hero}>
         <HeroCarousel images={[heroSlide1, heroSlide2, heroSlide3]} />
         <Image src={squiggle} alt="" className={styles.heroSquiggle} />
+        <Image src={squiggleMobile} alt="" className={styles.heroSquiggleMobile} />
       </section>
 
       <section className={`${styles.whatWeDo} gridLinesBlue`}>
@@ -98,7 +104,12 @@ export default async function HomePage() {
               <Image src={sparkleStar} alt="" className={`${styles.cardStar} ${STAR_CLASS[card.star]}`} />
               <div className={styles.cardContent}>
                 <Link href={card.href}>
-                  <Image src={card.titleImage} alt={card.titleAlt} className={styles.cardTitleImage} />
+                  <Image
+                    src={card.titleImage}
+                    alt={card.titleAlt}
+                    className={styles.cardTitleImage}
+                    style={{ transform: `rotate(${card.titleRotate}deg)` }}
+                  />
                 </Link>
                 <p>{card.text}</p>
                 <Link href={card.href} className={styles.cardCta}>
@@ -112,31 +123,33 @@ export default async function HomePage() {
 
       <section className={`${styles.teamBlurb} gridLinesWhite`}>
         <Image src={teamPhoto} alt="צוות איפכא" fill className={styles.teamBlurbPhoto} />
-        <div className={styles.teamText}>
-          <div className={styles.teamTextInner} />
-          <svg className={styles.teamTextFold} viewBox="0 0 89 89" aria-hidden="true">
-            <path
-              d="M88.3729 36.3833C88.3729 65.0705 61.5206 88.3285 28.3918 88.3285H0.36546L88.3729 0V36.3833Z"
-              fill="#E6E6E6"
-            />
-          </svg>
-          <div className={styles.teamTextContent}>
-            <div className={styles.teamTextHeadingWrap}>
-              <div className={styles.teamTextFoldSpacer} />
-              <h2>היי, אנחנו איפכא!</h2>
-            </div>
-            <p>
-              צוות של אנשי חינוך ומעצבים מתחומים מגוונים. הידע והניסיון שלנו יוצרים חיבור ודרך פעולה
-              ייחודית, המאפשרת לנו לחבור לצוותי חינוך, לזהות אתגרים, להפוך אותם להזדמנויות ולהתנסות
-              בפתרונות יצירתיים וחווייתיים שאפשר להביא לכיתה.
-            </p>
-            <Link href="/vision" className={styles.teamCta}>
-              רוצים לגלות עוד?
-            </Link>
-            <div className={styles.teamMobilePhotoWrap}>
-              <Image src={teamPhoto} alt="" fill className={styles.teamMobilePhoto} />
+        <div className={styles.teamBlurbContent}>
+          <div className={styles.teamText}>
+            <div className={styles.teamTextInner} />
+            <svg className={styles.teamTextFold} viewBox="0 0 89 89" aria-hidden="true">
+              <path
+                d="M88.3729 36.3833C88.3729 65.0705 61.5206 88.3285 28.3918 88.3285H0.36546L88.3729 0V36.3833Z"
+                fill="#E6E6E6"
+              />
+            </svg>
+            <div className={styles.teamTextContent}>
+              <div className={styles.teamTextHeadingWrap}>
+                <div className={styles.teamTextFoldSpacer} />
+                <h2>היי, אנחנו איפכא!</h2>
+              </div>
+              <p>
+                צוות של אנשי חינוך ומעצבים מתחומים מגוונים. הידע והניסיון שלנו יוצרים חיבור ודרך פעולה
+                ייחודית, המאפשרת לנו לחבור לצוותי חינוך, לזהות אתגרים, להפוך אותם להזדמנויות ולהתנסות
+                בפתרונות יצירתיים וחווייתיים שאפשר להביא לכיתה.
+              </p>
+              <Link href="/vision" className={styles.teamCta}>
+                רוצים לגלות עוד?
+              </Link>
             </div>
           </div>
+        </div>
+        <div className={styles.teamMobilePhotoWrap}>
+          <Image src={teamPhoto} alt="" fill className={styles.teamMobilePhoto} />
         </div>
       </section>
 

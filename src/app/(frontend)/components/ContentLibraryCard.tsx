@@ -27,13 +27,15 @@ export function ContentLibraryCard({ item }: { item: ContentLibraryItem }) {
           <Image src={image.url} alt={image.alt} fill className={styles.image} sizes="(max-width: 700px) 90vw, 406px" />
         )}
       </div>
-      <h3 className={styles.title}>{item.title}</h3>
-      <p className={styles.description}>{item.description}</p>
-      <div className={styles.footer}>
-        <a href={item.downloadUrl} target="_blank" rel="noopener noreferrer" className={styles.cta}>
-          {isFree ? 'להורדה >>' : 'לרכישה >>'}
-        </a>
-        <span className={styles.price}>{item.price}</span>
+      <div className={styles.content}>
+        <h3 className={styles.title}>{item.title}</h3>
+        <p className={styles.description}>{item.description}</p>
+        <div className={styles.footer}>
+          <a href={item.downloadUrl} target="_blank" rel="noopener noreferrer" className={styles.cta}>
+            {isFree ? 'להורדה >>' : 'לרכישה >>'}
+          </a>
+          <span className={styles.price}>{item.price}</span>
+        </div>
       </div>
     </motion.div>
   )

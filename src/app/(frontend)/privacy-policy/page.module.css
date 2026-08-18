@@ -1,12 +1,12 @@
 .section {
-  max-width: 860px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 160px 32px 120px;
 }
 
 .title {
   color: var(--color-blue);
-  font-size: 40px;
+  font-size: var(--font-size-heading);
   margin-bottom: 8px;
 }
 
@@ -26,8 +26,8 @@
 .section p,
 .section li {
   color: var(--color-text);
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
 }
 
 .section ul {

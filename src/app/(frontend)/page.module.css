@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 700px;
+  height: 75vh;
   width: 100%;
   border-radius: 0 0 90px 90px;
   overflow: hidden;
@@ -15,10 +15,28 @@
   pointer-events: none;
 }
 
+.heroSquiggleMobile {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  width: calc(100% + 14px);
+  height: auto;
+  pointer-events: none;
+}
+
 @media (max-width: 700px) {
   .hero {
-    height: 420px;
+    height: 75vh;
     border-radius: 0 0 50px 50px;
+  }
+
+  .heroSquiggle {
+    display: none;
+  }
+
+  .heroSquiggleMobile {
+    display: block;
   }
 }
 
@@ -51,14 +69,14 @@
   color: var(--color-blue);
   font-family: var(--font-arbel), sans-serif;
   font-weight: 500;
-  font-size: 40px;
+  font-size: var(--font-size-heading);
   line-height: 1;
   white-space: nowrap;
   margin: 0;
 }
 
 .cardsGrid {
-  max-width: 1300px;
+  max-width: 1140px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -67,7 +85,6 @@
 }
 
 .card {
-  max-width: 320px;
   flex: 1 1 260px;
 }
 
@@ -137,6 +154,13 @@
   right: -14px;
 }
 
+@media (max-width: 700px) {
+  .cardStarBottomRight {
+    right: auto;
+    left: -14px;
+  }
+}
+
 .cardTitleImage {
   width: auto;
   max-width: 220px;
@@ -147,8 +171,8 @@
 
 .cardContent p {
   color: var(--color-blue);
-  font-size: 17px;
-  line-height: 1.55;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   margin: 0 0 24px;
 }
 
@@ -158,7 +182,7 @@
   display: inline-block;
   background: var(--color-blue);
   color: #fff;
-  font-size: 17px;
+  font-size: var(--font-size-body);
   padding: 10px 22px;
   border-radius: 30px;
 }
@@ -176,13 +200,20 @@
   object-position: right center;
 }
 
+.teamBlurbContent {
+  position: absolute;
+  inset: 0;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
 .teamText {
   position: absolute;
   top: 60px;
   bottom: 60px;
-  left: 6%;
+  left: 0;
   width: 90%;
-  max-width: 446px;
+  max-width: 400px;
   border-radius: 28px;
   overflow: hidden;
   filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.15));
@@ -239,14 +270,14 @@
 
 .teamTextContent h2 {
   color: var(--color-blue);
-  font-size: 40px;
+  font-size: var(--font-size-heading);
   margin-bottom: 20px;
 }
 
 .teamTextContent p {
   color: var(--color-blue);
-  font-size: 20px;
-  line-height: 1.5;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   margin-bottom: 28px;
 }
 
@@ -268,15 +299,21 @@
       linear-gradient(to right, rgba(5, 44, 209, 0.2) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(5, 44, 209, 0.2) 1px, transparent 1px);
     background-size: 70px 70px;
-    padding: 40px 20px;
+    padding: 40px 20px 0;
   }
 
   .teamBlurbPhoto {
     display: none;
   }
 
+  .teamBlurbContent {
+    position: static;
+    max-width: none;
+  }
+
   .teamText {
     position: relative;
+    z-index: 1;
     top: auto;
     bottom: auto;
     left: auto;
@@ -297,11 +334,13 @@
   .teamMobilePhotoWrap {
     display: block;
     position: relative;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: -20px;
     aspect-ratio: 4 / 3;
-    border-radius: 24px;
+    border-radius: 0;
     overflow: hidden;
-    margin-top: 20px;
   }
 }
 
@@ -318,7 +357,7 @@
 
 .sparkCard {
   position: relative;
-  max-width: 1250px;
+  max-width: 1140px;
   width: 100%;
   background: #fff;
   border-radius: 100px;
@@ -364,7 +403,7 @@
 .sparkHeading {
   margin: 0 0 24px;
   color: var(--color-blue);
-  font-size: 40px;
+  font-size: var(--font-size-heading);
   font-weight: 700;
   line-height: 1.1em;
 }
@@ -410,8 +449,8 @@
 
 .sparkText p {
   color: var(--color-blue);
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   margin-bottom: 28px;
 }
 
@@ -425,7 +464,7 @@
 }
 
 .latestWorkshop {
-  max-width: 800px;
+  max-width: 1140px;
   width: 100%;
 }
 

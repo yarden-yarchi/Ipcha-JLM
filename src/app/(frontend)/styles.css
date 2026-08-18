@@ -9,6 +9,10 @@
   --color-text: #1a1a1a;
 
   --radius-pill: 90px;
+
+  --font-size-heading: 36px;
+  --font-size-body: 20px;
+  --line-height-body: 1.3;
 }
 
 * {

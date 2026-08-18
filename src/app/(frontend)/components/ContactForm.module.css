@@ -8,7 +8,7 @@
 
 .heading {
   color: var(--color-orange);
-  font-size: 40px;
+  font-size: var(--font-size-heading);
   margin-bottom: 8px;
 }
 
@@ -42,6 +42,10 @@
   color: #fff;
   font-size: 14px;
   line-height: 1.4;
+}
+
+.checkboxField a {
+  color: #fff;
 }
 
 .checkboxField input {

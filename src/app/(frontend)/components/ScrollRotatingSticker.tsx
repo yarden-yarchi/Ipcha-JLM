@@ -22,7 +22,7 @@ export function ScrollRotatingSticker({
   const textRef = useRef<HTMLImageElement>(null)
   const linkRef = useRef<HTMLAnchorElement>(null)
   const baseScrollRef = useRef<number | null>(null)
-  const ENTRY_ANGLE = 90
+  const ENTRY_ANGLE = -90
 
   useEffect(() => {
     let frame = 0
