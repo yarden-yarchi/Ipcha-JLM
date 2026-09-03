@@ -15,7 +15,7 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   color: #fff;
   font-size: 20px;
 }
@@ -46,6 +46,7 @@
 
 .checkboxField a {
   color: #fff;
+  text-decoration: underline;
 }
 
 .checkboxField input {
@@ -55,11 +56,6 @@
   flex-shrink: 0;
   accent-color: var(--color-orange);
   cursor: pointer;
-}
-
-.checkboxField a {
-  color: var(--color-orange);
-  text-decoration: underline;
 }
 
 .submit {

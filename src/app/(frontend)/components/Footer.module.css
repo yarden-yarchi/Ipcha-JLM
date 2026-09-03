@@ -124,8 +124,12 @@
   .right {
     order: 1;
     width: 100%;
-    align-items: flex-start;
-    text-align: right;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social {
+    justify-content: center;
   }
 
   .sitemap {
@@ -134,5 +138,9 @@
 
   .copyright {
     margin-top: 60px;
+  }
+
+  .credits {
+    margin-top: 50px;
   }
 }

@@ -139,14 +139,16 @@ export default function VisionPage() {
           ))}
         </div>
 
-        <p className={styles.quote}>
-          אז...בואו לעצב איתנו
-          <br />
-          <span className={styles.quoteHighlightWrap}>
-            <span className={styles.quoteHighlightBg} />
-            <span className={styles.quoteHighlightText}>את החוויה הבאה!</span>
-          </span>
-        </p>
+        <FadeInView>
+          <p className={styles.quote}>
+            אז...בואו לעצב איתנו
+            <br />
+            <span className={styles.quoteHighlightWrap}>
+              <span className={styles.quoteHighlightBg} />
+              <span className={styles.quoteHighlightText}>את החוויה הבאה!</span>
+            </span>
+          </p>
+        </FadeInView>
       </section>
 
       <section className={`${styles.steps} gridLinesBlue`}>
