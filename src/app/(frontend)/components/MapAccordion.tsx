@@ -66,10 +66,10 @@ export function MapAccordion({ locations }: { locations: MapLocation[] }) {
               className={styles.tooltip}
               style={{ left: `${activeLocation.position.x}%`, top: `${activeLocation.position.y}%` }}
             >
+              <span className={styles.tooltipLabel}>{activeLocation.title}</span>
               <svg className={styles.tooltipPin} viewBox="0 0 9.376 45" aria-hidden="true">
                 <path d={TOOLTIP_PIN_PATH} fill="var(--color-blue)" />
               </svg>
-              <span className={styles.tooltipLabel}>{activeLocation.title}</span>
             </div>
           )}
         </div>

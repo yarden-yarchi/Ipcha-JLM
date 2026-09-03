@@ -60,9 +60,9 @@
 .tooltip {
   position: absolute;
   display: flex;
-  flex-direction: row-reverse;
+  direction: ltr;
   align-items: flex-start;
-  transform: translate(-100%, calc(-100% - 14px));
+  transform: translate(-100%, calc(-100% - 18px));
   width: max-content;
   z-index: 3;
   pointer-events: none;
@@ -78,6 +78,7 @@
 
 .tooltipLabel {
   display: flex;
+  direction: rtl;
   align-items: center;
   height: 33px;
   background: var(--color-blue);
