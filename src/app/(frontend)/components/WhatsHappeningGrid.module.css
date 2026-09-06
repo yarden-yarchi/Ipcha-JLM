@@ -20,6 +20,20 @@
   display: inline-block;
 }
 
+.headingMobileOnly {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .headingDesktopOnly {
+    display: none;
+  }
+
+  .headingMobileOnly {
+    display: inline;
+  }
+}
+
 .headingBg {
   position: absolute;
   left: 0;
