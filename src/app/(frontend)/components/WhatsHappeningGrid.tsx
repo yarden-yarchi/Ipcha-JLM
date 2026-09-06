@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import type { Media, WhatsHappeningHere } from '@/payload-types'
@@ -10,6 +10,45 @@ import { AdminEditLink } from './AdminEditLink'
 import { FadeInView } from './FadeInView'
 import styles from './WhatsHappeningGrid.module.css'
 
+function CardTitle({ title }: { title: string }) {
+  const containerRef = useRef<HTMLSpanElement>(null)
+  const [lastLineStart, setLastLineStart] = useState(0)
+  const words = title.split(' ')
+
+  useLayoutEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    function measure() {
+      const wordEls = Array.from(container!.querySelectorAll<HTMLSpanElement>('[data-word]'))
+      if (wordEls.length === 0) return
+      const tops = wordEls.map((el) => el.offsetTop)
+      const maxTop = Math.max(...tops)
+      setLastLineStart(tops.findIndex((top) => top === maxTop))
+    }
+
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [title])
+
+  return (
+    <span ref={containerRef} className={styles.cardTitleText}>
+      {words.map((word, index) => (
+        <span
+          key={index}
+          data-word
+          className={index >= lastLineStart ? styles.cardTitleUnderline : undefined}
+        >
+          {word}
+          {index < words.length - 1 ? ' ' : ''}
+        </span>
+      ))}
+    </span>
+  )
+}
+
 export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
   const [active, setActive] = useState<WhatsHappeningHere | null>(null)
   const activeImage = active?.image as Media | undefined
@@ -17,8 +56,14 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
   return (
     <section className={styles.section}>
       <h2 className={styles.headingWrap}>
-        <span className={styles.headingBg} />
-        <span className={styles.heading}>מה עוד קורה כאן?</span>
+        <span className={styles.headingHighlight}>
+          <span className={styles.headingBg} />
+          <span className={styles.heading}>מה עוד</span>
+        </span>{' '}
+        <span className={styles.headingHighlight}>
+          <span className={styles.headingBg} />
+          <span className={styles.heading}>קורה כאן?</span>
+        </span>
       </h2>
       <div className={styles.grid}>
         {items.map((item) => {
@@ -37,7 +82,7 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
                 )}
                 <span className={styles.cardOverlay} />
                 <span className={styles.cardTitle}>
-                  <span className={styles.cardTitleText}>{item.title}</span>
+                  <CardTitle title={item.title} />
                 </span>
               </button>
               <AdminEditLink collection="whats-happening-here" id={item.id} />

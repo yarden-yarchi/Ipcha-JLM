@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 import type { Media, Workshop } from '@/payload-types'
-import sparkleStar from '../../../../assets/misc/sparkle-star.png'
+import sparkleStar from '../../../../assets/vision/star-pink.svg'
 import { AdminEditLink } from './AdminEditLink'
 import styles from './WorkshopTeaserCard.module.css'
 

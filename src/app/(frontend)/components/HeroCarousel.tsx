@@ -5,7 +5,13 @@ import { useEffect, useState } from 'react'
 
 import styles from './HeroCarousel.module.css'
 
-export function HeroCarousel({ images }: { images: StaticImageData[] }) {
+export function HeroCarousel({
+  images,
+  mobileImages,
+}: {
+  images: StaticImageData[]
+  mobileImages?: StaticImageData[]
+}) {
   const [active, setActive] = useState(0)
 
   useEffect(() => {
@@ -19,12 +25,23 @@ export function HeroCarousel({ images }: { images: StaticImageData[] }) {
     <div className={styles.carousel}>
       {images.map((image, index) => (
         <Image
-          key={index}
+          key={`desktop-${index}`}
           src={image}
           alt=""
           fill
           priority={index === 0}
-          className={styles.image}
+          className={`${styles.image} ${mobileImages ? styles.desktopOnly : ''}`}
+          style={{ opacity: index === active ? 1 : 0 }}
+        />
+      ))}
+      {mobileImages?.map((image, index) => (
+        <Image
+          key={`mobile-${index}`}
+          src={image}
+          alt=""
+          fill
+          priority={index === 0}
+          className={`${styles.image} ${styles.mobileOnly}`}
           style={{ opacity: index === active ? 1 : 0 }}
         />
       ))}

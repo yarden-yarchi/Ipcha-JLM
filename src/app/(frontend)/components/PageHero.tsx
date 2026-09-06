@@ -1,8 +1,9 @@
 import Image, { type StaticImageData } from 'next/image'
+import type { ReactNode } from 'react'
 
 import styles from './PageHero.module.css'
 
-export function PageHero({ image, title }: { image: StaticImageData; title: string }) {
+export function PageHero({ image, title }: { image: StaticImageData; title: ReactNode }) {
   return (
     <section className={styles.hero}>
       <Image src={image} alt="" fill priority className={styles.image} />

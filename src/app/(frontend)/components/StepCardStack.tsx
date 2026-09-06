@@ -37,7 +37,12 @@ function StickyStepCard({
           step.color === 'blue' ? styles.stepBlue : styles.stepPink
         }`}
       >
-        <Image src={step.image} alt="" fill className={styles.stepImage} />
+        <div
+          className={styles.stepImageWrap}
+          style={{ aspectRatio: `${step.image.width} / ${step.image.height}` }}
+        >
+          <Image src={step.image} alt="" fill className={styles.stepImage} />
+        </div>
         <div className={styles.stepContent}>
           <h3 className={styles.stepTitle}>
             <span className={styles.stepNumber}>{step.number}/</span> {step.title}

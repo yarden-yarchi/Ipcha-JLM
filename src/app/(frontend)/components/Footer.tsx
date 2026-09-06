@@ -56,17 +56,19 @@ export function Footer() {
         </div>
         <ContactForm />
       </div>
-      <p className={styles.copyright}>כל הזכויות שמורות לאיפכא</p>
+      <div className={styles.copyrightRow}>
+        <p className={styles.copyright}>כל הזכויות שמורות לאיפכא</p>
+        <div className={styles.legalLinks}>
+          <Link href="/privacy-policy">מדיניות פרטיות</Link>
+          <Link href="/accessibility">הצהרת נגישות</Link>
+        </div>
+      </div>
       <div className={styles.credits}>
         {CREDITS.map((credit) => (
           <a key={credit.label} href={credit.href} target="_blank" rel="noopener noreferrer">
             {credit.label}
           </a>
         ))}
-      </div>
-      <div className={styles.legalLinks}>
-        <Link href="/privacy-policy">מדיניות פרטיות</Link>
-        <Link href="/accessibility">הצהרת נגישות</Link>
       </div>
       <a
         href="https://wa.me/972733946200"

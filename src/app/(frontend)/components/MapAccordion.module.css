@@ -62,7 +62,7 @@
   display: flex;
   direction: ltr;
   align-items: flex-start;
-  transform: translate(-100%, calc(-100% - 18px));
+  transform: translate(0, calc(-100% - 18px));
   width: max-content;
   z-index: 3;
   pointer-events: none;
@@ -73,7 +73,6 @@
   width: 9.376px;
   height: 45px;
   display: block;
-  transform: scaleX(-1);
 }
 
 .tooltipLabel {
@@ -82,8 +81,9 @@
   align-items: center;
   height: 33px;
   background: var(--color-blue);
-  border-radius: 8px 0 0 8px;
-  padding: 0 6px 0 14px;
+  border-radius: 0 8px 8px 0;
+  padding: 0 14px 0 6px;
+  margin-left: -1px;
   color: #fff;
   font-family: var(--font-arbel), sans-serif;
   font-size: 18px;

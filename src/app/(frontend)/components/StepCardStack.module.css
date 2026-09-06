@@ -47,10 +47,17 @@
   padding: 40px 56px;
 }
 
-.stepImage {
+.stepImageWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  max-width: 100%;
   z-index: 0;
-  object-fit: contain;
-  object-position: left center;
+}
+
+.stepImage {
+  object-fit: cover;
 }
 
 .stepTitle {
@@ -103,5 +110,12 @@
   .stepText {
     width: 100%;
     font-size: 16px;
+  }
+
+  .stepImageWrap {
+    top: auto;
+    bottom: 0;
+    height: auto;
+    width: 100%;
   }
 }

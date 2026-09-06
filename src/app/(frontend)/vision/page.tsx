@@ -112,7 +112,16 @@ const PROCESS_STEPS: Step[] = [
 export default function VisionPage() {
   return (
     <>
-      <PageHero image={heroImage} title="מורים הם מעצבי העתיד: כך בונים למידה אחרת" />
+      <PageHero
+        image={heroImage}
+        title={
+          <>
+            מורים הם מעצבי העתיד:
+            <br />
+            כך בונים למידה אחרת
+          </>
+        }
+      />
 
       <section className={`${styles.intro} gridLinesWhite`}>
         <h2 className={styles.introHeading}>

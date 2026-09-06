@@ -6,6 +6,9 @@ import config from '@/payload.config'
 import heroSlide1 from '../../../assets/hero-slides/hero-slide-1.png'
 import heroSlide2 from '../../../assets/hero-slides/hero-slide-2.png'
 import heroSlide3 from '../../../assets/hero-slides/hero-slide-3.png'
+import heroSlideMobile1 from '../../../assets/hero-slides/hero-slide-mobile-1.jpg'
+import heroSlideMobile2 from '../../../assets/hero-slides/hero-slide-mobile-2.jpg'
+import heroSlideMobile3 from '../../../assets/hero-slides/hero-slide-mobile-3.jpg'
 import cardTitle1 from '../../../assets/home/card-title-inspiration.svg'
 import cardTitle2 from '../../../assets/home/card-title-spark.svg'
 import cardTitle3 from '../../../assets/home/card-title-schools.svg'
@@ -87,7 +90,10 @@ export default async function HomePage() {
   return (
     <>
       <section className={styles.hero}>
-        <HeroCarousel images={[heroSlide1, heroSlide2, heroSlide3]} />
+        <HeroCarousel
+          images={[heroSlide1, heroSlide2, heroSlide3]}
+          mobileImages={[heroSlideMobile1, heroSlideMobile2, heroSlideMobile3]}
+        />
         <Image src={squiggle} alt="" className={styles.heroSquiggle} />
         <Image src={squiggleMobile} alt="" className={styles.heroSquiggleMobile} />
       </section>
@@ -135,7 +141,11 @@ export default async function HomePage() {
             <div className={styles.teamTextContent}>
               <div className={styles.teamTextHeadingWrap}>
                 <div className={styles.teamTextFoldSpacer} />
-                <h2>היי, אנחנו איפכא!</h2>
+                <h2>
+                  היי,
+                  <br />
+                  אנחנו איפכא!
+                </h2>
               </div>
               <p>
                 צוות של אנשי חינוך ומעצבים מתחומים מגוונים. הידע והניסיון שלנו יוצרים חיבור ודרך פעולה
@@ -177,7 +187,7 @@ export default async function HomePage() {
               חינוכית וחשיבה עיצובית
             </p>
             <Link href="/workshops" className={styles.sparkCta}>
-              {'הסדנאות וההשתלמויות שלנו >>'}
+              {'סדנאות והשתלמויות >>'}
             </Link>
           </div>
           <div className={styles.sparkPhotoWrap}>
@@ -199,7 +209,9 @@ export default async function HomePage() {
         )}
       </section>
 
-      <PhotoBand />
+      <div className={styles.photoBandSpacer}>
+        <PhotoBand />
+      </div>
     </>
   )
 }

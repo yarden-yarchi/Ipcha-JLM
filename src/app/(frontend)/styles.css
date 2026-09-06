@@ -71,10 +71,10 @@ h1 {
 
 h2 {
   font-size: 36px;
-  line-height: 1.2;
+  line-height: 1.1;
 
   @media (max-width: 1024px) {
-    font-size: 28px;
+    font-size: 32px;
   }
 }
 
@@ -147,5 +147,13 @@ svg {
   .gridLinesBlue,
   .gridLinesWhite {
     background-attachment: scroll;
+  }
+}
+
+@media (max-width: 900px) {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
   }
 }

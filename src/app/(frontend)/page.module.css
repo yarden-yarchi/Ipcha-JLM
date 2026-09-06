@@ -110,7 +110,7 @@
   }
 
   .sectionHeading {
-    font-size: 26px;
+    font-size: 32px;
     white-space: normal;
     text-align: center;
   }
@@ -241,7 +241,7 @@
   position: relative;
   z-index: 2;
   height: 100%;
-  padding: 60px 48px;
+  padding: 70px 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -328,7 +328,11 @@
 
   .teamTextContent {
     height: auto;
-    padding: 60px 28px 28px;
+    padding: 70px 28px 38px;
+  }
+
+  .teamTextContent h2 {
+    font-size: 32px;
   }
 
   .teamMobilePhotoWrap {
@@ -473,6 +477,10 @@
     padding-bottom: 140px;
   }
 
+  .sparkHeading {
+    font-size: 32px;
+  }
+
   .sparkHeadingDesktopOnly {
     display: none;
   }
@@ -514,6 +522,12 @@
     padding: 14px 10px;
     font-size: 20px;
     text-align: center;
+  }
+}
+
+@media (min-width: 701px) {
+  .photoBandSpacer {
+    margin-top: 40px;
   }
 }
 
