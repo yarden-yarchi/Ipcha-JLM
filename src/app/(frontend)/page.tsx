@@ -90,10 +90,12 @@ export default async function HomePage() {
   return (
     <>
       <section className={styles.hero}>
-        <HeroCarousel
-          images={[heroSlide1, heroSlide2, heroSlide3]}
-          mobileImages={[heroSlideMobile1, heroSlideMobile2, heroSlideMobile3]}
-        />
+        <div className={styles.heroInner}>
+          <HeroCarousel
+            images={[heroSlide1, heroSlide2, heroSlide3]}
+            mobileImages={[heroSlideMobile1, heroSlideMobile2, heroSlideMobile3]}
+          />
+        </div>
         <Image src={squiggle} alt="" className={styles.heroSquiggle} />
         <Image src={squiggleMobile} alt="" className={styles.heroSquiggleMobile} />
       </section>
@@ -130,31 +132,33 @@ export default async function HomePage() {
       <section className={`${styles.teamBlurb} gridLinesWhite`}>
         <Image src={teamPhoto} alt="צוות איפכא" fill className={styles.teamBlurbPhoto} />
         <div className={styles.teamBlurbContent}>
-          <div className={styles.teamText}>
-            <div className={styles.teamTextInner} />
-            <svg className={styles.teamTextFold} viewBox="0 0 89 89" aria-hidden="true">
-              <path
-                d="M88.3729 36.3833C88.3729 65.0705 61.5206 88.3285 28.3918 88.3285H0.36546L88.3729 0V36.3833Z"
-                fill="#E6E6E6"
-              />
-            </svg>
-            <div className={styles.teamTextContent}>
-              <div className={styles.teamTextHeadingWrap}>
-                <div className={styles.teamTextFoldSpacer} />
-                <h2>
-                  היי,
-                  <br />
-                  אנחנו איפכא!
-                </h2>
+          <div className={styles.teamTextShadowWrap}>
+            <div className={styles.teamText}>
+              <div className={styles.teamTextInner} />
+              <svg className={styles.teamTextFold} viewBox="0 0 89 89" aria-hidden="true">
+                <path
+                  d="M88.3729 36.3833C88.3729 65.0705 61.5206 88.3285 28.3918 88.3285H0.36546L88.3729 0V36.3833Z"
+                  fill="#E6E6E6"
+                />
+              </svg>
+              <div className={styles.teamTextContent}>
+                <div className={styles.teamTextHeadingWrap}>
+                  <div className={styles.teamTextFoldSpacer} />
+                  <h2>
+                    היי,
+                    <br />
+                    אנחנו איפכא!
+                  </h2>
+                </div>
+                <p>
+                  צוות של אנשי חינוך ומעצבים מתחומים מגוונים. הידע והניסיון שלנו יוצרים חיבור ודרך פעולה
+                  ייחודית, המאפשרת לנו לחבור לצוותי חינוך, לזהות אתגרים, להפוך אותם להזדמנויות ולהתנסות
+                  בפתרונות יצירתיים וחווייתיים שאפשר להביא לכיתה.
+                </p>
+                <Link href="/vision" className={styles.teamCta}>
+                  רוצים לגלות עוד?
+                </Link>
               </div>
-              <p>
-                צוות של אנשי חינוך ומעצבים מתחומים מגוונים. הידע והניסיון שלנו יוצרים חיבור ודרך פעולה
-                ייחודית, המאפשרת לנו לחבור לצוותי חינוך, לזהות אתגרים, להפוך אותם להזדמנויות ולהתנסות
-                בפתרונות יצירתיים וחווייתיים שאפשר להביא לכיתה.
-              </p>
-              <Link href="/vision" className={styles.teamCta}>
-                רוצים לגלות עוד?
-              </Link>
             </div>
           </div>
         </div>

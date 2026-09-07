@@ -2,6 +2,11 @@
   position: relative;
   height: 75vh;
   width: 100%;
+}
+
+.heroInner {
+  position: absolute;
+  inset: 0;
   border-radius: 0 0 40px 40px;
   overflow: hidden;
 }
@@ -19,15 +24,19 @@
   display: none;
   position: absolute;
   bottom: 0;
-  left: -10px;
-  width: calc(100% + 14px);
+  left: 0;
+  width: 100%;
   height: auto;
+  margin-bottom: 16px;
   pointer-events: none;
 }
 
 @media (max-width: 700px) {
   .hero {
     height: 75vh;
+  }
+
+  .heroInner {
     border-radius: 0 0 30px 30px;
   }
 
@@ -100,7 +109,7 @@
 
 @media (max-width: 700px) {
   .whatWeDo {
-    padding: 100px 20px 60px;
+    padding: 100px 20px 40px;
   }
 
   .sectionHeadingWrap {
@@ -201,22 +210,28 @@
 }
 
 .teamBlurbContent {
-  position: absolute;
-  inset: 0;
+  position: relative;
   max-width: 1140px;
   margin: 0 auto;
 }
 
-.teamText {
-  position: absolute;
-  top: 60px;
-  bottom: 60px;
-  left: 0;
+.teamTextShadowWrap {
+  position: relative;
+  z-index: 1;
+  margin: 60px auto 60px 0;
   width: 90%;
   max-width: 400px;
   border-radius: 28px;
-  overflow: hidden;
   filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.15));
+}
+
+.teamText {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .teamTextInner {
@@ -240,8 +255,7 @@
 .teamTextContent {
   position: relative;
   z-index: 2;
-  height: 100%;
-  padding: 70px 48px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -311,14 +325,11 @@
     max-width: none;
   }
 
-  .teamText {
-    position: relative;
+  .teamTextShadowWrap {
     z-index: 1;
-    top: auto;
-    bottom: auto;
-    left: auto;
     width: 100%;
     max-width: none;
+    margin-top: 0;
     filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.15));
   }
 
@@ -341,7 +352,7 @@
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
-    margin-top: -20px;
+    margin-top: -80px;
     aspect-ratio: 4 / 3;
     border-radius: 0;
     overflow: hidden;
