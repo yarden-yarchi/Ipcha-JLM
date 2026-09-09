@@ -56,6 +56,20 @@
   z-index: 0;
 }
 
+.stepImageWrapMobile {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .stepImageWrapDesktop {
+    display: none;
+  }
+
+  .stepImageWrapMobile {
+    display: block;
+  }
+}
+
 .stepImage {
   object-fit: cover;
 }

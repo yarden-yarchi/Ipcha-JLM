@@ -11,6 +11,7 @@ export type Step = {
   title: string
   text: string
   image: StaticImageData
+  mobileImage: StaticImageData
   color: 'blue' | 'pink'
 }
 
@@ -38,10 +39,16 @@ function StickyStepCard({
         }`}
       >
         <div
-          className={styles.stepImageWrap}
+          className={`${styles.stepImageWrap} ${styles.stepImageWrapDesktop}`}
           style={{ aspectRatio: `${step.image.width} / ${step.image.height}` }}
         >
           <Image src={step.image} alt="" fill className={styles.stepImage} />
+        </div>
+        <div
+          className={`${styles.stepImageWrap} ${styles.stepImageWrapMobile}`}
+          style={{ aspectRatio: `${step.mobileImage.width} / ${step.mobileImage.height}` }}
+        >
+          <Image src={step.mobileImage} alt="" fill className={styles.stepImage} />
         </div>
         <div className={styles.stepContent}>
           <h3 className={styles.stepTitle}>

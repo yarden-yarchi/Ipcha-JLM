@@ -6,6 +6,10 @@ import doodle1 from '../../../../assets/vision/doodle-1.png'
 import doodle2 from '../../../../assets/vision/doodle-2.png'
 import doodle3 from '../../../../assets/vision/doodle-3.png'
 import doodle4 from '../../../../assets/vision/doodle-4.png'
+import doodle1Mobile from '../../../../assets/vision/doodle-1-mobile.png'
+import doodle2Mobile from '../../../../assets/vision/doodle-2-mobile.png'
+import doodle3Mobile from '../../../../assets/vision/doodle-3-mobile.png'
+import doodle4Mobile from '../../../../assets/vision/doodle-4-mobile.png'
 import supportPhoto from '../../../../assets/home/image-07.jpeg'
 import { FadeInView } from '../components/FadeInView'
 import { PageHero } from '../components/PageHero'
@@ -84,6 +88,7 @@ const PROCESS_STEPS: Step[] = [
     title: 'מחקר אמפתי',
     text: 'שלב ראשוני שנועד להבין באמת את השטח ואת המצב הקיים. בעזרת כלי התבוננות שמתמקדים בחוויה האנושית, יוצאים לחקר משמעותי ורחב – מקיימים שיחות, בוחנים התנהגויות ומזהים את נקודות הכאב.',
     image: doodle1,
+    mobileImage: doodle1Mobile,
     color: 'blue',
   },
   {
@@ -91,6 +96,7 @@ const PROCESS_STEPS: Step[] = [
     title: 'הגדרת הזדמנות',
     text: 'איסוף התובנות הגולמיות משלב המחקר האמפתי וגיבושן לכדי בעיה מוגדרת היטב, המזמינה פתרון יצירתי. זהו רגע של הארה – הבנה משמעותית של צורך אמיתי, שממנו מנסחים אתגר שניתן לעבוד איתו.',
     image: doodle2,
+    mobileImage: doodle2Mobile,
     color: 'pink',
   },
   {
@@ -98,6 +104,7 @@ const PROCESS_STEPS: Step[] = [
     title: 'רעיונאות',
     text: 'שלב חשוב וחגיגי בתהליך, שבו מתקיים סיעור מוחות יצירתי, ובעזרת כלים ייחודיים מעלים כמה שיותר רעיונות מגוונים. רעיונאות מאפשרת לנו לפגוש רעיונות שונים ומשונים, להשתחרר מכל המגבלות ולעוף עם הדמיון. בסופו נבחר הרעיון בעל הפוטנציאל הגבוה ביותר.',
     image: doodle3,
+    mobileImage: doodle3Mobile,
     color: 'blue',
   },
   {
@@ -105,6 +112,7 @@ const PROCESS_STEPS: Step[] = [
     title: 'פרוטוטייפ ובדיקה',
     text: 'השלב שבו הופכים רעיונות מופשטים לייצוגים מוחשיים, מהירים ופשוטים, כדי לבחון אותם בשטח. המטרה היא לנסות את הפתרון, ללמוד מהר מה עובד ומה לא, ובעת הצורך לחזור לשלבים הקודמים ולדייק.',
     image: doodle4,
+    mobileImage: doodle4Mobile,
     color: 'pink',
   },
 ]
