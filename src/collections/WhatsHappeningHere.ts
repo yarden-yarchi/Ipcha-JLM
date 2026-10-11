@@ -15,7 +15,10 @@ export const WhatsHappeningHere: CollectionConfig = {
     useAsTitle: 'title',
     components: {
       edit: {
-        beforeDocumentControls: ['/components/admin/BackToListButton#BackToListButton'],
+        beforeDocumentControls: [
+          '/components/admin/BackToListButton#BackToListButton',
+          '/components/admin/LivePreview#WhatsHappeningLivePreview',
+        ],
       },
     },
   },

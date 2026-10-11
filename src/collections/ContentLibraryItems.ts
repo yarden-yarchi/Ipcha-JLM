@@ -16,7 +16,10 @@ export const ContentLibraryItems: CollectionConfig = {
     defaultColumns: ['title', 'price'],
     components: {
       edit: {
-        beforeDocumentControls: ['/components/admin/BackToListButton#BackToListButton'],
+        beforeDocumentControls: [
+          '/components/admin/BackToListButton#BackToListButton',
+          '/components/admin/LivePreview#ContentLibraryLivePreview',
+        ],
       },
     },
   },

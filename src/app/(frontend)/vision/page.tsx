@@ -129,6 +129,7 @@ export default function VisionPage() {
             כך בונים למידה אחרת
           </>
         }
+        extraMobileHeight={60}
       />
 
       <section className={`${styles.intro} gridLinesWhite`}>

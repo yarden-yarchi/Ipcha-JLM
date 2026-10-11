@@ -16,7 +16,10 @@ export const Workshops: CollectionConfig = {
     defaultColumns: ['title', 'date', 'location'],
     components: {
       edit: {
-        beforeDocumentControls: ['/components/admin/BackToListButton#BackToListButton'],
+        beforeDocumentControls: [
+          '/components/admin/BackToListButton#BackToListButton',
+          '/components/admin/LivePreview#WorkshopLivePreview',
+        ],
       },
     },
   },

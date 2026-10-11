@@ -1,0 +1,16 @@
+:root {
+  --font-mono: 'Roboto Mono', monospace;
+
+  /* צבעי בסיס - נאספים מהעיצוב בפיגמה */
+  --color-blue: #052cd1;
+  --color-orange: #fbb040;
+  --color-pink: #fab8ff;
+  --color-white: #ffffff;
+  --color-text: #1a1a1a;
+
+  --radius-pill: 90px;
+
+  --font-size-heading: 36px;
+  --font-size-body: 20px;
+  --line-height-body: 1.3;
+}
