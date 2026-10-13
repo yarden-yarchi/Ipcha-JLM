@@ -10,13 +10,7 @@ import logoLockup from '../../../../assets/misc/logo-footer-lockup.svg'
 import whatsappBubble from '../../../../assets/misc/whatsapp-bubble.png'
 import { ContactForm } from './ContactForm'
 import styles from './Footer.module.css'
-
-const SITEMAP_LINKS = [
-  { href: '/vision', label: 'החזון שלנו' },
-  { href: '/', label: 'בואו לאיפכא' },
-  { href: '/partners', label: 'מה תמצאו אצלנו?' },
-  { href: '/content-library', label: 'מאגר תכנים' },
-]
+import { NAV_LINKS } from './navLinks'
 
 const CREDITS = [
   { label: 'עיצוב: טלי גלעד', href: 'https://taligilad.co.il/' },
@@ -24,13 +18,20 @@ const CREDITS = [
   { label: 'פיתוח: ירדן ירחי', href: 'https://yarden-yarchi.com' },
 ]
 
-// TODO: להחליף בקישורים חיצוניים אמיתיים (רשתות חברתיות, טלפון, מייל, מיקום, וואטסאפ) כשיישלחו
 const SOCIAL_LINKS = [
-  { icon: iconInstagram, href: '#', label: 'אינסטגרם' },
-  { icon: iconFacebook, href: '#', label: 'פייסבוק' },
-  { icon: iconPhone, href: 'tel:', label: 'טלפון' },
-  { icon: iconMail, href: 'mailto:', label: 'מייל' },
-  { icon: iconPin, href: '#', label: 'מיקום' },
+  {
+    icon: iconInstagram,
+    href: 'https://www.instagram.com/ipcha.jlm?psln=b3JwMnF2OWNqM2ds&utm_source=qr',
+    label: 'אינסטגרם',
+  },
+  {
+    icon: iconFacebook,
+    href: 'https://www.facebook.com/share/1BtNsNkaDs/?mibextid=wwXIfr',
+    label: 'פייסבוק',
+  },
+  { icon: iconPhone, href: 'tel:+972733946200', label: 'טלפון' },
+  { icon: iconMail, href: 'mailto:office@ipcha.org.il', label: 'מייל' },
+  { icon: iconPin, href: 'https://maps.app.goo.gl/eqyhGKTG8qGupirL7', label: 'מיקום' },
 ]
 
 export function Footer() {
@@ -40,18 +41,27 @@ export function Footer() {
         <div className={styles.right}>
           <Image src={logoLockup} alt="איפכא" className={styles.logo} />
           <ul className={styles.sitemap}>
-            {SITEMAP_LINKS.map((link) => (
-              <li key={link.label}>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
                 <Link href={link.href}>{link.label}</Link>
               </li>
             ))}
           </ul>
           <div className={styles.social}>
-            {SOCIAL_LINKS.map((link) => (
-              <a key={link.label} href={link.href} aria-label={link.label}>
-                <Image src={link.icon} alt="" />
-              </a>
-            ))}
+            {SOCIAL_LINKS.map((link) => {
+              const isExternal = link.href.startsWith('http')
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-label={link.label}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                >
+                  <Image src={link.icon} alt="" />
+                </a>
+              )
+            })}
           </div>
         </div>
         <ContactForm />

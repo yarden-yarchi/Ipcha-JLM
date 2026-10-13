@@ -65,7 +65,6 @@ export function WhatsHappeningCard({
           sizes="(max-width: 700px) 90vw, 301px"
         />
       )}
-      <span className={styles.cardOverlay} />
       <span className={styles.cardTitle}>
         <CardTitle title={item.title} />
       </span>

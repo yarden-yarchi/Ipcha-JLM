@@ -39,24 +39,14 @@ const WHAT_WE_DO_CARDS: {
   star: StarPosition
 }[] = [
   {
-    titleImage: cardTitle1,
-    titleAlt: 'כאן מוצאים השראה',
-    titleRotate: 6.16,
-    text: 'ספרייה מתעדכנת של עזרים פדגוגיים מעוצבים, שנועדו להכניס צבע, יצירתיות וחדשנות לכיתה שלך.',
-    ctaLabel: 'למאגר התכנים >>',
-    href: '/content-library',
-    corner: 'top-right',
-    star: 'top-left',
-  },
-  {
     titleImage: cardTitle2,
     titleAlt: 'עוזרים להצית את הניצוץ',
     titleRotate: -5.67,
     text: 'הזדמנויות ללמידה באמצעות כלי חשיבה עיצובית. מפגשים שמעניקים למורים כלים רעננים ליצירת הוראה רלוונטית ומותאמת, והופכים תיאוריה לפרקטיקה.',
     ctaLabel: 'סדנאות והשתלמויות >>',
     href: '/workshops',
-    corner: 'top-left',
-    star: 'bottom-right',
+    corner: 'top-right',
+    star: 'top-left',
   },
   {
     titleImage: cardTitle3,
@@ -65,6 +55,16 @@ const WHAT_WE_DO_CARDS: {
     text: 'תהליך שמזהה אתגרים חינוכיים והופך אותם להזדמנויות. הזמנה לצאת מהשגרה ולחשוב כמו מעצבים: בואו להכיר פדגוגיה שיוצאת מהקופסה ונשארת מחוברת לכיתה.',
     ctaLabel: 'התפיסה שלנו >>',
     href: '/vision',
+    corner: 'top-left',
+    star: 'bottom-right',
+  },
+  {
+    titleImage: cardTitle1,
+    titleAlt: 'כאן מוצאים השראה',
+    titleRotate: 6.16,
+    text: 'ספרייה מתעדכנת של עזרים פדגוגיים מעוצבים, שנועדו להכניס צבע, יצירתיות וחדשנות לכיתה שלך.',
+    ctaLabel: 'למאגר התכנים >>',
+    href: '/content-library',
     corner: 'bottom-right',
     star: 'top-right',
   },
@@ -188,10 +188,10 @@ export default async function HomePage() {
             </h2>
             <p>
               אנחנו באיפכא פותחים לכם את הדלת ללמידה והתנסות. בואו להעשיר את ארגז הכלים שלכם בחדשנות
-              חינוכית וחשיבה עיצובית
+              חינוכית וחשיבה עיצובית.
             </p>
-            <Link href="/workshops" className={styles.sparkCta}>
-              {'סדנאות והשתלמויות >>'}
+            <Link href="/partners" className={styles.sparkCta}>
+              {'שותפים ותוכניות >>'}
             </Link>
           </div>
           <div className={styles.sparkPhotoWrap}>

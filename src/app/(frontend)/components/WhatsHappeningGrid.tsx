@@ -20,16 +20,16 @@ export function WhatsHappeningGrid({ items }: { items: WhatsHappeningHere[] }) {
       <h2 className={styles.headingWrap}>
         <span className={`${styles.headingHighlight} ${styles.headingDesktopOnly}`}>
           <span className={styles.headingBg} />
-          <span className={styles.heading}>מה עוד קורה כאן?</span>
+          <span className={styles.heading}>שותפים ותכניות</span>
         </span>
         <span className={styles.headingMobileOnly}>
           <span className={styles.headingHighlight}>
             <span className={styles.headingBg} />
-            <span className={styles.heading}>מה עוד</span>
+            <span className={styles.heading}>שותפים</span>
           </span>{' '}
           <span className={styles.headingHighlight}>
             <span className={styles.headingBg} />
-            <span className={styles.heading}>קורה כאן?</span>
+            <span className={styles.heading}>ותכניות</span>
           </span>
         </span>
       </h2>

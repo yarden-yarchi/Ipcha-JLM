@@ -7,14 +7,8 @@ import { useEffect, useRef, useState } from 'react'
 
 import logo from '../../../../assets/logo-site.svg'
 import { useAdminBarOffset } from './AdminBarProvider'
+import { NAV_LINKS } from './navLinks'
 import styles from './Nav.module.css'
-
-const NAV_LINKS = [
-  { href: '/content-library', label: 'מאגר תכנים' },
-  { href: '/partners', label: 'שותפים ותוכניות' },
-  { href: '/workshops', label: 'סדנאות והשתלמויות' },
-  { href: '/vision', label: 'החזון שלנו' },
-]
 
 function NavLinkItem({
   href,

@@ -8,7 +8,7 @@ const COLLECTION_LABELS: Record<string, string> = {
   media: 'מדיה',
   workshops: 'סדנאות',
   'content-library-items': 'מאגר תכנים',
-  'whats-happening-here': 'מה קורה כאן',
+  'whats-happening-here': 'שותפים ותכניות',
   'map-locations': 'מיקומים על המפה',
   'contact-submissions': 'פניות מטופס יצירת קשר',
 }

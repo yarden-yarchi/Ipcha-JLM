@@ -6,6 +6,10 @@ import { useEffect, useRef } from 'react'
 
 import styles from './ScrollRotatingSticker.module.css'
 
+const DEGREES_PER_PIXEL = 0.3
+const MOBILE_BREAKPOINT = 900
+const MOBILE_BASE_ANGLE = -80
+
 export function ScrollRotatingSticker({
   href,
   ariaLabel,
@@ -19,55 +23,41 @@ export function ScrollRotatingSticker({
   textImage: StaticImageData
   className?: string
 }) {
-  const textRef = useRef<HTMLImageElement>(null)
-  const linkRef = useRef<HTMLAnchorElement>(null)
-  const baseScrollRef = useRef<number | null>(null)
-  const ENTRY_ANGLE = -90
+  const textWrapRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let frame = 0
 
-    const rotate = () => {
+    const update = () => {
       frame = 0
-      if (baseScrollRef.current === null) return
-      const angle = (ENTRY_ANGLE + (window.scrollY - baseScrollRef.current) * 0.15) % 360
-      if (textRef.current) {
-        textRef.current.style.transform = `rotate(${angle}deg)`
+      const baseAngle = window.innerWidth <= MOBILE_BREAKPOINT ? MOBILE_BASE_ANGLE : 0
+      const angle = baseAngle + window.scrollY * DEGREES_PER_PIXEL
+      if (textWrapRef.current) {
+        textWrapRef.current.style.transform = `rotate(${angle}deg)`
       }
     }
 
+    update()
+
     const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(rotate)
+      if (!frame) frame = requestAnimationFrame(update)
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && baseScrollRef.current === null) {
-          baseScrollRef.current = window.scrollY
-          rotate()
-        }
-      },
-      { threshold: 0 },
-    )
-    if (linkRef.current) observer.observe(linkRef.current)
-
     window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
     return () => {
       window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
       cancelAnimationFrame(frame)
-      observer.disconnect()
     }
   }, [])
 
   return (
-    <Link
-      ref={linkRef}
-      href={href}
-      className={`${styles.link} ${className ?? ''}`}
-      aria-label={ariaLabel}
-    >
+    <Link href={href} className={`${styles.link} ${className ?? ''}`} aria-label={ariaLabel}>
       <Image src={bgImage} alt="" className={styles.bg} />
-      <Image ref={textRef} src={textImage} alt="" className={styles.text} />
+      <div ref={textWrapRef} className={styles.textWrap}>
+        <Image src={textImage} alt="" className={styles.text} />
+      </div>
     </Link>
   )
 }

@@ -8,8 +8,8 @@ const revalidate = revalidatePaths(['/partners'])
 export const WhatsHappeningHere: CollectionConfig = {
   slug: 'whats-happening-here',
   labels: {
-    singular: 'מה קורה כאן',
-    plural: 'מה קורה כאן',
+    singular: 'שותפים ותכניות',
+    plural: 'שותפים ותכניות',
   },
   admin: {
     useAsTitle: 'title',

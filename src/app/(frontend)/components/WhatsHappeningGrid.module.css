@@ -71,21 +71,27 @@
 .card {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   border-radius: 40px;
   overflow: hidden;
   border: none;
   padding: 0;
   cursor: pointer;
-  background: #eee;
+  background: #eff8ff;
+  outline: none;
 }
 
-.cardImage {
-  object-fit: cover;
+.card:hover,
+.card:active {
+  scale: 1;
 }
 
-.cardOverlay {
+.card:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+.card::after {
+  content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -96,8 +102,13 @@
   );
 }
 
+.cardImage {
+  object-fit: cover;
+}
+
 .cardTitle {
   position: absolute;
+  z-index: 1;
   bottom: 24px;
   left: 16px;
   right: 16px;

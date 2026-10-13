@@ -139,10 +139,6 @@
     justify-content: center;
   }
 
-  .sitemap {
-    display: none;
-  }
-
   .copyrightRow {
     margin-top: 60px;
     flex-direction: column;

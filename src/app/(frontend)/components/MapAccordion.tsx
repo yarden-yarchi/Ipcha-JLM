@@ -10,7 +10,7 @@ import styles from './MapAccordion.module.css'
 const TOOLTIP_PIN_PATH = 'M0 8C0 3.58172 3.58172 0 8 0H9.376V33L0 45V8Z'
 
 export function MapAccordion({ locations }: { locations: MapLocation[] }) {
-  const [activeId, setActiveId] = useState<number | undefined>(locations[0]?.id)
+  const [activeId, setActiveId] = useState<number | undefined>(undefined)
   const activeLocation = locations.find((location) => location.id === activeId)
 
   return (

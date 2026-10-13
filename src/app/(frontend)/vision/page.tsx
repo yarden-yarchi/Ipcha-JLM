@@ -120,23 +120,11 @@ const PROCESS_STEPS: Step[] = [
 export default function VisionPage() {
   return (
     <>
-      <PageHero
-        image={heroImage}
-        title={
-          <>
-            מורים הם מעצבי העתיד:
-            <br />
-            כך בונים למידה אחרת
-          </>
-        }
-        extraMobileHeight={60}
-      />
+      <PageHero image={heroImage} title="מורים הם מעצבי העתיד" />
 
       <section className={`${styles.intro} gridLinesWhite`}>
         <h2 className={styles.introHeading}>
-          ברוכים הבאים לאיפכא
-          <br />
-          מרכז לחדשנות פדגוגית
+          ברוכים הבאים לאיפכא -<br className={styles.introHeadingBreak} /> מרכז לחדשנות פדגוגית
         </h2>
 
         <div className={styles.beliefs}>
@@ -170,7 +158,7 @@ export default function VisionPage() {
       </section>
 
       <section className={`${styles.steps} gridLinesBlue`}>
-        <h2 className={styles.stepsHeading}>בואו נבין- מהי חשיבה עיצובית?</h2>
+        <h2 className={styles.stepsHeading}>בואו נבין מהי חשיבה עיצובית?</h2>
 
         <StepCardStack steps={PROCESS_STEPS} />
       </section>
@@ -179,7 +167,7 @@ export default function VisionPage() {
         <div className={styles.reflection}>
           <div className={styles.reflectionText}>
             <Image src={starPink} alt="" className={styles.reflectionStar} />
-            <h2 className={styles.reflectionHeading}>אז איך מעצבים חוית הוראה?</h2>
+            <h2 className={styles.reflectionHeading}>איך מעצבים חווית הוראה?</h2>
             <p>
               כאשר מתחיל תהליך העיצוב, המעצבים שלנו נפגשים עם המורה, בוחרים תחום דעת ומבררים יחד איתו
               מהם האתגרים שהוא חווה בשגרת ההוראה. באמצעות כלי חשיבה עיצובית חוקרים ומדייקים את הצורך,

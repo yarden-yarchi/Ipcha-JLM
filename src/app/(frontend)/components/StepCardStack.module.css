@@ -5,7 +5,7 @@
   align-items: center;
   gap: 20px;
   padding-top: 5vh;
-  padding-bottom: 40vh;
+  padding-bottom: 10vh;
 }
 
 .stickyWrap {
@@ -29,6 +29,9 @@
   min-height: 340px;
   border-radius: 40px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .stepBlue {
