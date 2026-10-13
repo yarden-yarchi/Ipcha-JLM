@@ -9,6 +9,7 @@ import styles from './ScrollRotatingSticker.module.css'
 const DEGREES_PER_PIXEL = 0.3
 const MOBILE_BREAKPOINT = 900
 const MOBILE_BASE_ANGLE = -80
+const DESKTOP_BASE_ANGLE = -100
 
 export function ScrollRotatingSticker({
   href,
@@ -30,7 +31,8 @@ export function ScrollRotatingSticker({
 
     const update = () => {
       frame = 0
-      const baseAngle = window.innerWidth <= MOBILE_BREAKPOINT ? MOBILE_BASE_ANGLE : 0
+      const baseAngle =
+        window.innerWidth <= MOBILE_BREAKPOINT ? MOBILE_BASE_ANGLE : DESKTOP_BASE_ANGLE
       const angle = baseAngle + window.scrollY * DEGREES_PER_PIXEL
       if (textWrapRef.current) {
         textWrapRef.current.style.transform = `rotate(${angle}deg)`
