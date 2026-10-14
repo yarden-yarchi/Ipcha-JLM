@@ -1,4 +1,5 @@
 import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_dbe4c9beb3b0f2a7b7a12ce17b9c7d3a } from '@payloadcms/storage-vercel-blob/client'
+import { StatusCell as StatusCell_4da1f90de99340c8531cff72a46c36b2 } from '../../../components/admin/StatusCell'
 import { LargeTitleField as LargeTitleField_3d6a237d56f4cda6e5e4b7b62e46bc5f } from '../../../components/admin/LargeTitleField'
 import { BackToListButton as BackToListButton_4163e8a49881fa0dbdeab321b9e10771 } from '../../../components/admin/BackToListButton'
 import { WorkshopLivePreview as WorkshopLivePreview_b7bc2d3d00019c4220a8800645be86b4 } from '../../../components/admin/LivePreview'
@@ -14,6 +15,7 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 /** @type import('payload').ImportMap */
 export const importMap = {
   "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_dbe4c9beb3b0f2a7b7a12ce17b9c7d3a,
+  "/components/admin/StatusCell#StatusCell": StatusCell_4da1f90de99340c8531cff72a46c36b2,
   "/components/admin/LargeTitleField#LargeTitleField": LargeTitleField_3d6a237d56f4cda6e5e4b7b62e46bc5f,
   "/components/admin/BackToListButton#BackToListButton": BackToListButton_4163e8a49881fa0dbdeab321b9e10771,
   "/components/admin/LivePreview#WorkshopLivePreview": WorkshopLivePreview_b7bc2d3d00019c4220a8800645be86b4,

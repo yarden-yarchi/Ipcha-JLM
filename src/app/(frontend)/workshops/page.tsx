@@ -19,6 +19,7 @@ export default async function WorkshopsPage() {
     collection: 'workshops',
     sort: '-date',
     limit: 100,
+    where: { status: { not_equals: 'draft' } },
   })
 
   return (
@@ -30,7 +31,19 @@ export default async function WorkshopsPage() {
           {workshops.docs.map((workshop) => (
             <WorkshopTeaserCard key={workshop.id} workshop={workshop} />
           ))}
-          {workshops.docs.length === 0 && <p className={styles.empty}>עדיין אין סדנאות מתוכננות.</p>}
+          {workshops.docs.length === 0 && (
+            <div className={styles.empty}>
+              <p>כרגע אין סדנאות מתוכננות, אבל עקבו אחרינו כדי להתעדכן!</p>
+              <a
+                href="https://www.instagram.com/ipcha.jlm?psln=b3JwMnF2OWNqM2ds&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.emptyCta}
+              >
+                לעמוד האינסטגרם שלנו
+              </a>
+            </div>
+          )}
         </div>
       </section>
 

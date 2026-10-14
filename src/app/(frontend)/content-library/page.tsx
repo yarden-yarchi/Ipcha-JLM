@@ -19,6 +19,7 @@ export default async function ContentLibraryPage() {
     collection: 'content-library-items',
     sort: '-createdAt',
     limit: 100,
+    where: { status: { not_equals: 'draft' } },
   })
 
   return (

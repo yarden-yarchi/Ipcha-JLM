@@ -20,6 +20,7 @@ export default async function PartnersPage() {
     collection: 'whats-happening-here',
     sort: '-createdAt',
     limit: 50,
+    where: { status: { not_equals: 'draft' } },
   })
 
   const mapLocations = await payload.find({

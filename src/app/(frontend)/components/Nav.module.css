@@ -1,6 +1,6 @@
 .header {
   position: fixed;
-  top: 24px;
+  top: 36px;
   left: 32px;
   right: 32px;
   z-index: 50;
@@ -10,7 +10,7 @@
 }
 
 .offsetBar {
-  top: calc(24px + 40px);
+  top: calc(36px + 40px);
 }
 
 .pill {
@@ -60,6 +60,8 @@
   color: var(--color-blue);
   white-space: nowrap;
   position: relative;
+  display: inline-block;
+  padding-top: 6px;
   padding-bottom: 6px;
 }
 
@@ -86,7 +88,6 @@
 
 .linkActive {
   position: relative;
-  display: inline-block;
 }
 
 .linkActiveBg {
@@ -228,6 +229,7 @@
     color: var(--color-blue);
     white-space: nowrap;
     position: relative;
+    display: inline-block;
     padding-bottom: 6px;
   }
 

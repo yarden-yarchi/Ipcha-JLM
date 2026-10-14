@@ -177,6 +177,7 @@ export interface Media {
  */
 export interface Workshop {
   id: number;
+  status: 'published' | 'draft';
   image: number | Media;
   preTitle?: string | null;
   title: string;
@@ -195,6 +196,7 @@ export interface Workshop {
  */
 export interface ContentLibraryItem {
   id: number;
+  status: 'published' | 'draft';
   image: number | Media;
   title: string;
   description: string;
@@ -209,6 +211,7 @@ export interface ContentLibraryItem {
  */
 export interface WhatsHappeningHere {
   id: number;
+  status: 'published' | 'draft';
   image: number | Media;
   title: string;
   text: string;
@@ -390,6 +393,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "workshops_select".
  */
 export interface WorkshopsSelect<T extends boolean = true> {
+  status?: T;
   image?: T;
   preTitle?: T;
   title?: T;
@@ -407,6 +411,7 @@ export interface WorkshopsSelect<T extends boolean = true> {
  * via the `definition` "content-library-items_select".
  */
 export interface ContentLibraryItemsSelect<T extends boolean = true> {
+  status?: T;
   image?: T;
   title?: T;
   description?: T;
@@ -420,6 +425,7 @@ export interface ContentLibraryItemsSelect<T extends boolean = true> {
  * via the `definition` "whats-happening-here_select".
  */
 export interface WhatsHappeningHereSelect<T extends boolean = true> {
+  status?: T;
   image?: T;
   title?: T;
   text?: T;

@@ -13,7 +13,7 @@ export const ContentLibraryItems: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'price'],
+    defaultColumns: ['title', 'price', 'status'],
     components: {
       edit: {
         beforeDocumentControls: [
@@ -34,6 +34,23 @@ export const ContentLibraryItems: CollectionConfig = {
     afterDelete: [revalidate.afterDelete],
   },
   fields: [
+    {
+      name: 'status',
+      label: 'סטטוס',
+      type: 'select',
+      options: [
+        { label: 'פורסם', value: 'published' },
+        { label: 'טיוטה', value: 'draft' },
+      ],
+      defaultValue: 'published',
+      required: true,
+      admin: {
+        position: 'sidebar',
+        components: {
+          Cell: '/components/admin/StatusCell#StatusCell',
+        },
+      },
+    },
     {
       name: 'image',
       label: 'תמונה',

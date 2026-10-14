@@ -84,6 +84,7 @@ export default async function HomePage() {
     collection: 'workshops',
     sort: '-date',
     limit: 1,
+    where: { status: { not_equals: 'draft' } },
   })
   const latestWorkshop = latestWorkshops.docs[0]
 

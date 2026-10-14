@@ -13,6 +13,7 @@ export const WhatsHappeningHere: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
+    defaultColumns: ['title', 'status'],
     components: {
       edit: {
         beforeDocumentControls: [
@@ -33,6 +34,23 @@ export const WhatsHappeningHere: CollectionConfig = {
     afterDelete: [revalidate.afterDelete],
   },
   fields: [
+    {
+      name: 'status',
+      label: 'סטטוס',
+      type: 'select',
+      options: [
+        { label: 'פורסם', value: 'published' },
+        { label: 'טיוטה', value: 'draft' },
+      ],
+      defaultValue: 'published',
+      required: true,
+      admin: {
+        position: 'sidebar',
+        components: {
+          Cell: '/components/admin/StatusCell#StatusCell',
+        },
+      },
+    },
     {
       name: 'image',
       label: 'תמונה',
